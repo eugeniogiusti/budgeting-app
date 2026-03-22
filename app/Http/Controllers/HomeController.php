@@ -18,7 +18,7 @@ class HomeController extends Controller
         $date    = $this->getSelectedMonth();
         $summary = (new MonthlySummaryQuery($date->year, $date->month))->handle();
 
-        return view('home', [
+        return $this->mobileView('home', [
             'readyToAssign'  => (new ReadyToAssignQuery)->handle(),
             'categories'     => (new CategoriesWithMonthDataQuery($date->year, $date->month))->handle(),
             'monthIncome'    => $summary['income'],

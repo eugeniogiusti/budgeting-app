@@ -16,7 +16,7 @@ class StatsController extends Controller
     {
         $date = $this->getSelectedMonth();
 
-        return view('stats.index', [
+        return $this->mobileView('stats.index', [
             'monthName'          => $date->translatedFormat('F Y'),
             'spendingByCategory' => (new SpendingByCategoryQuery($date->year, $date->month))->handle(),
             'monthlyTrend'       => (new MonthlyTrendQuery(6))->handle(),

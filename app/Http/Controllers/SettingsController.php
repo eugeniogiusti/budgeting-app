@@ -24,7 +24,7 @@ class SettingsController extends Controller
             $currencies[$code] = $currencyLabels[$code] ?? $code;
         }
 
-        return view('settings.index', [
+        return $this->mobileView('settings.index', [
             'locale'       => Setting::get('locale',    config('budget.default_locale')),
             'currencyCode' => Setting::get('currency', config('budget.default_currency')),
             'locales'      => $locales,

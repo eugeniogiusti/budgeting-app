@@ -7,6 +7,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>BudgetKit</title>
+    <link rel="icon" type="image/svg+xml" href="/images/logo/logo-icon.svg">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
 
     <!-- Scripts -->
@@ -108,9 +109,6 @@
     };
     window.addEventListener('resize', checkMobile);">
 
-    {{-- preloader --}}
-    <x-common.preloader/>
-    {{-- preloader end --}}
 
     <div class="min-h-screen xl:flex">
         @include('layouts.backdrop')

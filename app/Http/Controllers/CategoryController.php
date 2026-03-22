@@ -15,14 +15,14 @@ class CategoryController extends Controller
 
     public function index(): View
     {
-        return view('categories.index', [
+        return $this->mobileView('categories.index', [
             'categories' => (new CategoriesListQuery)->handle(),
         ]);
     }
 
     public function create(): View
     {
-        return view('categories.create');
+        return $this->mobileView('categories.create');
     }
 
     public function store(StoreCategoryRequest $request): RedirectResponse
@@ -40,7 +40,7 @@ class CategoryController extends Controller
 
     public function edit(Category $category): View
     {
-        return view('categories.edit', compact('category'));
+        return $this->mobileView('categories.edit', compact('category'));
     }
 
     public function update(StoreCategoryRequest $request, Category $category): RedirectResponse

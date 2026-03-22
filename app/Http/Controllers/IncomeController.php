@@ -13,7 +13,7 @@ class IncomeController extends Controller
 
     public function create(): View
     {
-        return view('income.create');
+        return $this->mobileView('income.create');
     }
 
     public function store(StoreIncomeRequest $request): RedirectResponse

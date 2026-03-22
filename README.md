@@ -21,6 +21,23 @@
 
 BudgetKit è un'applicazione web per la gestione delle finanze personali. Permette di tracciare entrate e uscite, impostare un budget mensile per categoria, monitorare obiettivi di risparmio e visualizzare statistiche di spesa — il tutto con un'interfaccia pulita, dark mode inclusa.
 
+Il layout si adatta automaticamente al dispositivo: **interfaccia desktop** con sidebar e tabelle, **interfaccia mobile** con gradient UI e navigazione bottom tab — senza app da installare.
+
+---
+
+## Screenshots
+
+<table>
+  <tr>
+    <td align="center"><b>Desktop</b></td>
+    <td align="center"><b>Mobile</b></td>
+  </tr>
+  <tr>
+    <td><img src=".github/screenshots/desktop.png" alt="BudgetKit desktop" /></td>
+    <td><img src=".github/screenshots/mobile.png" alt="BudgetKit mobile" /></td>
+  </tr>
+</table>
+
 ---
 
 ## Funzionalità
@@ -36,6 +53,7 @@ BudgetKit è un'applicazione web per la gestione delle finanze personali. Permet
 - **Auth** — registrazione e login, profilo con modifica nome/email/password
 - **Dark mode** — supporto nativo
 - **Multi-lingua** — italiano e inglese
+- **Responsive automatico** — layout desktop con sidebar su PC, layout mobile ottimizzato su smartphone (rilevamento User-Agent)
 
 ---
 

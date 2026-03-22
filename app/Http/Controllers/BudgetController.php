@@ -23,7 +23,7 @@ class BudgetController extends Controller
     {
         $date = $this->getSelectedMonth();
 
-        return view('budget.index', [
+        return $this->mobileView('budget.index', [
             'categories'     => (new CategoriesWithMonthDataQuery($date->year, $date->month))->handle(),
             'readyToAssign'  => (new ReadyToAssignQuery)->handle(),
             'monthName'      => $date->translatedFormat('F Y'),
@@ -40,7 +40,7 @@ class BudgetController extends Controller
         $date   = $this->getSelectedMonth();
         $detail = (new CategoryMonthDetailQuery($category, $date->year, $date->month))->handle();
 
-        return view('budget.edit', [
+        return $this->mobileView('budget.edit', [
             'category'      => $category,
             'assigned'      => $detail['assigned'],
             'spent'         => $detail['spent'],

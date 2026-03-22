@@ -31,7 +31,7 @@ class TransactionController extends Controller
             'category_id' => $categoryId,
         ]);
 
-        return view('transactions.index', [
+        return $this->mobileView('transactions.index', [
             'transactions'     => (new MonthlyTransactionsQuery($date->year, $date->month, $type, $categoryId))->handle(),
             'categories'       => Category::where('is_goal', false)->orderBy('sort_order')->get(),
             'activeType'       => $type,
@@ -47,7 +47,7 @@ class TransactionController extends Controller
 
     public function create(): View
     {
-        return view('transactions.create', [
+        return $this->mobileView('transactions.create', [
             'categories' => Category::where('is_goal', false)->orderBy('sort_order')->get(),
             'today'      => Carbon::today()->format('Y-m-d'),
         ]);
@@ -67,7 +67,7 @@ class TransactionController extends Controller
 
     public function edit(Transaction $transaction): View
     {
-        return view('transactions.edit', [
+        return $this->mobileView('transactions.edit', [
             'transaction' => $transaction,
             'categories'  => Category::where('is_goal', false)->orderBy('sort_order')->get(),
         ]);

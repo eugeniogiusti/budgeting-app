@@ -15,14 +15,14 @@ class GoalController extends Controller
 
     public function index(): View
     {
-        return view('goals.index', [
+        return $this->mobileView('goals.index', [
             'goals' => (new GoalsProgressQuery)->handle(),
         ]);
     }
 
     public function create(): View
     {
-        return view('goals.create');
+        return $this->mobileView('goals.create');
     }
 
     public function store(StoreGoalRequest $request): RedirectResponse
@@ -36,7 +36,7 @@ class GoalController extends Controller
 
     public function edit(Category $goal): View
     {
-        return view('goals.edit', ['goal' => $goal]);
+        return $this->mobileView('goals.edit', ['goal' => $goal]);
     }
 
     public function update(StoreGoalRequest $request, Category $goal): RedirectResponse
