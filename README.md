@@ -1,420 +1,162 @@
-# TailAdmin Laravel - Tailwind CSS Free Laravel Dashboard
+<p align="center">
+  <img src="public/images/logo/logo-icon.svg" width="64" height="64" alt="BudgetKit logo" />
+</p>
 
-**TailAdmin Laravel** is a modern, production-ready admin dashboard template powered by **Laravel 12**, **Tailwind CSS v4**, **Alpine.js**, and a clean, modular architecture. TailAdmin is one of the most popular Tailwind CSS dashboard now also available for Larvael. It’s designed for building fast, scalable admin panels, CRM dashboards, SaaS backends, and any data-driven application where clarity and performance matter.
-![TailAdmin - Next.js Dashboard Preview](./tailadmin-laravel.png)
+<h1 align="center">BudgetKit</h1>
 
+<p align="center">
+  <strong>Tieni il controllo delle tue finanze.</strong><br/>
+  Personal finance manager open source — built with Laravel & Tailwind CSS.
+</p>
 
-## Quick Links
+<p align="center">
+  <img src="https://img.shields.io/badge/Laravel-12-red?logo=laravel" alt="Laravel 12" />
+  <img src="https://img.shields.io/badge/Tailwind_CSS-v4-38bdf8?logo=tailwindcss" alt="Tailwind CSS" />
+  <img src="https://img.shields.io/badge/license-MIT-green" alt="MIT License" />
+</p>
 
-* [✨ Get TailAdmin Laravel](https://tailadmin.com/laravel)
-* [📄 Documentation](https://tailadmin.com/docs)
-* [⬇️ Download](https://tailadmin.com/download)
-* [🌐 Live Demo](https://laravel-demo.tailadmin.com)
+---
 
-Here’s a tighter, more search-friendly version that highlights value and avoids fluff while keeping your structure intact.
+## Cos'è BudgetKit
 
-## ✨ Key Features
+BudgetKit è un'applicazione web per la gestione delle finanze personali. Permette di tracciare entrate e uscite, impostare un budget mensile per categoria, monitorare obiettivi di risparmio e visualizzare statistiche di spesa — il tutto con un'interfaccia pulita, dark mode inclusa.
 
-* 🚀 **Laravel 12 Core** - Built on the latest Laravel release with improved routing, security, and Blade templating
-* 🎨 **Tailwind CSS v4** - Utility-first styling for rapid, consistent UI development
-* ⚡ **Alpine.js Interactivity** - Lightweight reactivity without a heavy JavaScript framework
-* 📦 **Vite Build System** - Fast dev server, instant HMR, and optimized production builds
-* 📱 **Fully Responsive Layouts** - Smooth, mobile-first design that adapts across all screen sizes
-* 🌙 **Built-in Dark Mode** - Ready-to-use modern dark theme for better usability and aesthetics
-* 📊 **Advanced UI Components** - Charts, data tables, forms, calendars, modals, and reusable blocks for complex dashboards
-* 🎯 **Production-Ready Dashboard UI** - Clean, modern interface crafted for real apps, not placeholder demos
+---
 
-### Other Versions
+## Funzionalità
 
-- [Next.js Version](https://github.com/TailAdmin/free-nextjs-admin-dashboard)
-- [React.js Version](https://github.com/TailAdmin/free-react-tailwind-admin-dashboard)
-- [Vue.js Version](https://github.com/TailAdmin/vue-tailwind-admin-dashboard)
-- [Angular Version](https://github.com/TailAdmin/free-angular-tailwind-dashboard)
-- [Laravel Version](https://github.com/TailAdmin/tailadmin-laravel)
+- **Dashboard** — panoramica immediata: saldo disponibile, totale assegnato, obiettivi attivi
+- **Transazioni** — registra entrate e uscite, filtra per tipo e mese
+- **Budget** — assegna un budget mensile per ogni categoria, copia il budget del mese precedente
+- **Obiettivi** — crea obiettivi di risparmio con importo target e progresso visivo
+- **Statistiche** — grafico donut per categoria + trend mensile entrate/uscite (6 mesi)
+- **Categorie** — gestisci categorie personalizzate con emoji e colore
+- **Impostazioni** — lingua (IT/EN) e valuta (EUR, USD, GBP, CHF)
+- **Export CSV** — esporta tutte le transazioni
+- **Auth** — registrazione e login, profilo con modifica nome/email/password
+- **Dark mode** — supporto nativo
+- **Multi-lingua** — italiano e inglese
 
-## 📋 Requirements
-To set up TailAdmin Laravel, make sure your environment includes:
+---
 
-* **PHP 8.2+**
-* **Composer** (PHP dependency manager)
-* **Node.js 18+** and **npm** (for compiling frontend assets)
-* **Database** - Works with SQLite (default), MySQL, or PostgreSQL
+## Stack tecnologico
 
-### Tailwind CSS Laravel Dashboard
+| Layer | Tecnologia |
+|---|---|
+| Backend | Laravel 12 |
+| Frontend | Tailwind CSS v4, Alpine.js |
+| Charts | ApexCharts |
+| Template base | TailAdmin Laravel |
+| Database | SQLite / MySQL / PostgreSQL |
 
-TailAdmin delivers a refined Tailwind CSS Laravel Dashboard experience, combining Laravel’s robust backend with Tailwind’s flexible utility classes. The result is a clean, fast, and customizable dashboard that helps developers build modern admin interfaces without the usual front-end complexity. It’s ideal for teams looking for a Tailwind-powered Laravel starter that stays lightweight and easy to scale.
+---
 
-### Laravel Admin Dashboard
+## Installazione
 
-If you’re searching for a dependable Laravel Admin Dashboard template that’s easy to set up and ready for production, TailAdmin fits the job. It offers a polished UI, reusable components, optimized performance, and all the essentials needed to launch dashboards, CRM systems, and internal tools quickly. It gives developers a solid foundation, so projects move faster with fewer decisions to worry about.
+### Requisiti
+- PHP 8.2+
+- Composer
+- Node.js 18+
 
-### Check Your Environment
-
-Verify your installations:
-
-```bash
-php -v
-composer -V
-node -v
-npm -v
-```
-
-## 🚀 Quick Start Installation
-
-### Step 1: Clone the Repository
+### Setup
 
 ```bash
-git clone https://github.com/TailAdmin/tailadmin-laravel.git
-cd tailadmin-laravel
-```
+# 1. Clona il repository
+git clone https://github.com/tuo-username/budgetkit.git
+cd budgetkit
 
-### Step 2: Install PHP Dependencies
-
-```bash
+# 2. Installa dipendenze PHP
 composer install
-```
 
-This command will install all Laravel dependencies defined in `composer.json`.
-
-### Step 3: Install Node.js Dependencies
-
-```bash
+# 3. Installa dipendenze JS
 npm install
-```
 
-Or if you prefer yarn or pnpm:
-
-```bash
-# Using yarn
-yarn install
-
-# Using pnpm
-pnpm install
-```
-
-### Step 4: Environment Configuration
-
-Copy the example environment file:
-
-```bash
+# 4. Configura l'ambiente
 cp .env.example .env
-```
-
-**For Windows users:**
-
-```bash
-copy .env.example .env
-```
-
-**Or create it programmatically:**
-
-```bash
-php -r "file_exists('.env') || copy('.env.example', '.env');"
-```
-
-### Step 5: Generate Application Key
-
-```bash
 php artisan key:generate
-```
 
-This creates a unique encryption key for your application.
-
-### Step 6: Configure Database
-
-#### Option A: Using MySQL/PostgreSQL
-
-Update your `.env` file with your database credentials:
-
-```env
-DB_CONNECTION=mysql
-DB_HOST=127.0.0.1
-DB_PORT=3306
-DB_DATABASE=tailadmin_db
-DB_USERNAME=your_username
-DB_PASSWORD=your_password
-```
-
-Create the database:
-
-```bash
-# MySQL
-mysql -u root -p -e "CREATE DATABASE tailadmin_db;"
-
-# PostgreSQL
-createdb tailadmin_db
-```
-
-Run migrations:
-
-```bash
+# 5. Configura il database in .env, poi esegui le migration
 php artisan migrate
-```
 
-### Step 7: (Optional) Seed the Database
+# 6. Build assets
+npm run build
 
-If you want sample data:
-
-```bash
-php artisan db:seed
-```
-
-### Step 8: Storage Link
-
-Create a symbolic link for file storage:
-
-```bash
-php artisan storage:link
-```
-
-## 🏃 Running the Application
-
-### Development Mode (Recommended)
-
-The easiest way to start development is using the built-in script:
-
-```bash
-composer run dev
-```
-
-This single command starts:
-- ✅ Laravel development server (http://localhost:8000)
-- ✅ Vite dev server for hot module reloading
-- ✅ Queue worker for background jobs
-- ✅ Log monitoring
-
-**Access your application at:** [http://localhost:8000](http://localhost:8000)
-
-### Manual Development Setup
-
-If you prefer to run services individually in separate terminal windows:
-
-**Terminal 1 - Laravel Server:**
-```bash
+# 7. Avvia il server
 php artisan serve
 ```
 
-**Terminal 2 - Frontend Assets:**
+Apri `http://localhost:8000`, registra un account e inizia a usare BudgetKit.
+
+### Sviluppo con hot reload
+
 ```bash
 npm run dev
-```
-
-### Building for Production
-
-#### Build Frontend Assets
-
-```bash
-npm run build
-```
-
-#### Optimize Laravel
-
-```bash
-# Clear and cache configuration
-php artisan config:cache
-
-# Cache routes
-php artisan route:cache
-
-# Cache views
-php artisan view:cache
-
-# Optimize autoloader
-composer install --optimize-autoloader --no-dev
-```
-
-#### Production Environment
-
-Update your `.env` for production:
-
-```env
-APP_ENV=production
-APP_DEBUG=false
-APP_URL=https://yourdomain.com
-```
-
-
-## 🧪 Testing
-
-Run the test suite using Pest:
-
-```bash
-composer run test
-```
-
-Or manually:
-
-```bash
-php artisan test
-```
-
-Run with coverage:
-
-```bash
-php artisan test --coverage
-```
-
-Run specific tests:
-
-```bash
-php artisan test --filter=ExampleTest
-```
-
-## 📜 Available Commands
-
-### Composer Scripts
-
-```bash
-# Start development environment
-composer run dev
-
-# Run tests
-composer run test
-
-# Code formatting (if configured)
-composer run format
-
-# Static analysis (if configured)
-composer run analyze
-```
-
-### NPM Scripts
-
-```bash
-# Start Vite dev server
-npm run dev
-
-# Build for production
-npm run build
-
-# Preview production build
-npm run preview
-
-# Lint JavaScript/TypeScript
-npm run lint
-
-# Format code
-npm run format
-```
-
-### Artisan Commands
-
-```bash
-# Start development server
 php artisan serve
-
-# Run migrations
-php artisan migrate
-
-# Rollback migrations
-php artisan migrate:rollback
-
-# Fresh migrations with seeding
-php artisan migrate:fresh --seed
-
-# Generate application key
-php artisan key:generate
-
-# Clear all caches
-php artisan optimize:clear
-
-# Cache everything for production
-php artisan optimize
-
-# Create symbolic link for storage
-php artisan storage:link
-
-# Start queue worker
-php artisan queue:work
-
-# List all routes
-php artisan route:list
-
-# Create a new controller
-php artisan make:controller YourController
-
-# Create a new model
-php artisan make:model YourModel -m
-
-# Create a new migration
-php artisan make:migration create_your_table
 ```
 
-## 📁 Project Structure
+---
+
+## Struttura del progetto
 
 ```
-tailadmin-laravel/
-├── app/                    # Application logic
-│   ├── Http/              # Controllers, Middleware, Requests
-│   ├── Models/            # Eloquent models
-│   └── Providers/         # Service providers
-├── bootstrap/             # Framework bootstrap files
-├── config/                # Configuration files
-├── database/              # Migrations, seeders, factories
-│   ├── migrations/
-│   ├── seeders/
-│   └── factories/
-├── public/                # Public assets (entry point)
-│   ├── build/            # Compiled assets (generated)
-│   └── index.php         # Application entry point
-├── resources/             # Views and raw assets
-│   ├── css/              # Stylesheets (Tailwind)
-│   ├── js/               # JavaScript files (Alpine.js)
-│   └── views/            # Blade templates
-├── routes/                # Route definitions
-│   ├── web.php           # Web routes
-│   ├── api.php           # API routes
-│   └── console.php       # Console routes
-├── storage/               # Logs, cache, uploads
-│   ├── app/
-│   ├── framework/
-│   └── logs/
-├── tests/                 # Pest test files
-│   ├── Feature/
-│   └── Unit/
-├── .env.example           # Example environment file
-├── artisan                # Artisan CLI
-├── composer.json          # PHP dependencies
-├── package.json           # Node dependencies
-├── vite.config.js         # Vite configuration
-└── tailwind.config.js     # Tailwind configuration
+app/
+├── Http/Controllers/       # Controller per ogni modulo
+│   └── Auth/               # Login, Register
+├── Http/Requests/          # Form request validation
+├── Models/                 # Eloquent models
+├── Services/               # BudgetService — logica di business
+└── Helpers/                # MenuHelper — sidebar navigation
+
+lang/
+├── it/ui.php               # Traduzioni italiano
+└── en/ui.php               # Traduzioni inglese
+
+resources/views/
+├── layouts/                # app.blade.php, sidebar, header
+├── home/                   # Dashboard
+├── transactions/           # Lista + form transazioni
+├── budget/                 # Budget mensile
+├── goals/                  # Obiettivi
+├── stats/                  # Statistiche
+├── categories/             # Categorie
+├── settings/               # Impostazioni
+├── profile/                # Profilo utente
+└── auth/                   # Login + Register
 ```
 
-## 🐛 Troubleshooting
+---
 
-### Common Issues
+## Configurazione
 
-#### "Class not found" errors
-```bash
-composer dump-autoload
+Le impostazioni principali si trovano in `config/budget.php`:
+
+```php
+'locales'          => ['it', 'en'],
+'default_locale'   => 'it',
+'currencies'       => ['EUR', 'USD', 'GBP', 'CHF'],
+'default_currency' => 'EUR',
 ```
 
-#### Permission errors on storage/bootstrap/cache
-```bash
-chmod -R 775 storage bootstrap/cache
-```
+---
 
-#### NPM build errors
-```bash
-rm -rf node_modules package-lock.json
-npm install
-```
+## Contribuire
 
-#### Clear all caches
-```bash
-php artisan optimize:clear
-```
+Pull request benvenute. Per cambiamenti importanti, apri prima una issue per discutere cosa vorresti modificare.
 
-#### Database connection errors
-- Check `.env` database credentials
-- Ensure database server is running
-- Verify database exists
+1. Fork del repository
+2. Crea un branch (`git checkout -b feature/nuova-funzionalita`)
+3. Commit delle modifiche (`git commit -m 'Add: nuova funzionalita'`)
+4. Push (`git push origin feature/nuova-funzionalita`)
+5. Apri una Pull Request
 
-## 🔄 Update Log
+---
 
-### [2025-12-29]
-- Added Date Picker in Statistics Chart
+## Licenza
 
-## License
+Distribuito sotto licenza **MIT**. Vedi [`LICENSE`](LICENSE) per i dettagli.
 
-Refer to our [LICENSE](https://tailadmin.com/license) page for more information.
+---
+
+<p align="center">
+  Fatto con ❤️ usando <a href="https://laravel.com">Laravel</a> e <a href="https://tailwindcss.com">Tailwind CSS</a>
+</p>
