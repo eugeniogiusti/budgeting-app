@@ -2,6 +2,8 @@
 
 @section('content')
 
+<div class="max-w-5xl">
+
 {{-- Header --}}
 <div class="mb-6 flex items-center justify-between">
     <div>
@@ -79,11 +81,13 @@
     </div>
 </div>
 
+</div>{{-- /max-w-5xl --}}
+
 @endsection
 
 @push('scripts')
 <script>
-(function() {
+document.addEventListener('DOMContentLoaded', function() {
     const spendingData = @json($spendingByCategory);
     const trendData = @json($monthlyTrend);
     const isDark = document.documentElement.classList.contains('dark');
@@ -159,6 +163,6 @@
             },
         }).render();
     }
-})();
+});
 </script>
 @endpush

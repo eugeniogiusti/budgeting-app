@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ $title ?? 'Dashboard' }} | BudgetKit</title>
+    <title>BudgetKit</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -131,8 +132,7 @@
 
     </div>
 
+    @stack('scripts')
 </body>
-
-@stack('scripts')
 
 </html>
