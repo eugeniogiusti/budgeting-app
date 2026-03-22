@@ -71,6 +71,7 @@ return [
     'edit_income' => 'Modifica Entrata',
     'save_expense' => 'Salva',
     'cancel' => 'Annulla',
+    'save' => 'Salva',
     'no_transactions' => 'Nessuna transazione',
     'filter_all' => 'Tutti',
 
@@ -126,4 +127,6 @@ return [
     'nav_goals' => 'Obiettivi',
     'nav_stats' => 'Statistiche',
     'nav_transactions' => 'Movimenti',
+    'nav_menu' => 'Menu',
+    'nav_other' => 'Altro',
 ];

@@ -9,27 +9,27 @@ class MenuHelper
         return [
             [
                 'icon' => 'dashboard',
-                'name' => 'Home',
+                'name' => __('ui.home'),
                 'path' => '/',
             ],
             [
                 'icon' => 'tables',
-                'name' => 'Budget',
+                'name' => __('ui.nav_budget'),
                 'path' => '/budget',
             ],
             [
                 'icon' => 'task',
-                'name' => 'Transazioni',
+                'name' => __('ui.nav_transactions'),
                 'path' => '/transactions',
             ],
             [
                 'icon' => 'charts',
-                'name' => 'Statistiche',
+                'name' => __('ui.nav_stats'),
                 'path' => '/stats',
             ],
             [
                 'icon' => 'goal',
-                'name' => 'Obiettivi',
+                'name' => __('ui.nav_goals'),
                 'path' => '/goals',
             ],
         ];
@@ -40,21 +40,13 @@ class MenuHelper
         return [
             [
                 'icon' => 'forms',
-                'name' => 'Categorie',
+                'name' => __('ui.categories'),
                 'path' => '/categories',
             ],
             [
                 'icon' => 'settings',
-                'name' => 'Impostazioni',
+                'name' => __('ui.settings'),
                 'path' => '/settings',
-            ],
-            [
-                'icon' => 'authentication',
-                'name' => 'Authentication',
-                'subItems' => [
-                    ['name' => 'Sign In', 'path' => '/signin', 'pro' => false],
-                    ['name' => 'Sign Up', 'path' => '/signup', 'pro' => false],
-                ],
             ],
         ];
     }
@@ -63,11 +55,11 @@ class MenuHelper
     {
         return [
             [
-                'title' => 'Menu',
+                'title' => __('ui.nav_menu'),
                 'items' => self::getMainNavItems()
             ],
             [
-                'title' => 'Others',
+                'title' => __('ui.nav_other'),
                 'items' => self::getOthersItems()
             ]
         ];

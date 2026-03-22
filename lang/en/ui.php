@@ -71,6 +71,7 @@ return [
     'edit_income' => 'Edit Income',
     'save_expense' => 'Save',
     'cancel' => 'Cancel',
+    'save' => 'Save',
     'no_transactions' => 'No transactions',
     'filter_all' => 'All',
 
@@ -126,4 +127,6 @@ return [
     'nav_goals' => 'Goals',
     'nav_stats' => 'Stats',
     'nav_transactions' => 'Transactions',
+    'nav_menu' => 'Menu',
+    'nav_other' => 'Other',
 ];

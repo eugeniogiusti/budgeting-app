@@ -11,11 +11,24 @@ class SettingsController extends Controller
 {
     public function index(): View
     {
+        $localeLabels = ['it' => 'Italiano', 'en' => 'English'];
+        $currencyLabels = ['EUR' => 'EUR (€)', 'USD' => 'USD ($)', 'GBP' => 'GBP (£)', 'CHF' => 'CHF'];
+
+        $locales = [];
+        foreach (config('budget.locales') as $code) {
+            $locales[$code] = $localeLabels[$code] ?? $code;
+        }
+
+        $currencies = [];
+        foreach (config('budget.currencies') as $code) {
+            $currencies[$code] = $currencyLabels[$code] ?? $code;
+        }
+
         return view('settings.index', [
             'locale'       => Setting::get('locale',    config('budget.default_locale')),
             'currencyCode' => Setting::get('currency', config('budget.default_currency')),
-            'locales'      => config('budget.locales'),
-            'currencies'   => config('budget.currencies'),
+            'locales'      => $locales,
+            'currencies'   => $currencies,
         ]);
     }
 
