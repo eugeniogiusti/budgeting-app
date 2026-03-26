@@ -19,6 +19,7 @@ class BudgetController extends Controller
 
     public function __construct(private BudgetService $budgetService) {}
 
+    // Display the budget overview for the selected month, with per-category assigned/spent data.
     public function index(): View
     {
         $date = $this->getSelectedMonth();
@@ -35,6 +36,7 @@ class BudgetController extends Controller
         ]);
     }
 
+    // Show the edit form for assigning a budget amount to a specific category and month.
     public function edit(Category $category): View
     {
         $date   = $this->getSelectedMonth();
@@ -50,6 +52,7 @@ class BudgetController extends Controller
         ]);
     }
 
+    // Persist the assigned budget amount for a category and redirect back to the monthly budget view.
     public function update(StoreBudgetRequest $request, Category $category): RedirectResponse
     {
         $data = $request->validated();

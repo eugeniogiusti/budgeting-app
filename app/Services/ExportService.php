@@ -23,7 +23,13 @@ class ExportService
         $filePath = $dir . '/' . $filename;
         $handle   = fopen($filePath, 'w');
 
-        fputcsv($handle, ['Data', 'Tipo', 'Importo', 'Categoria', 'Nota']);
+        fputcsv($handle, [
+            __('ui.date'),
+            __('ui.type'),
+            __('ui.amount'),
+            __('ui.category'),
+            __('ui.note'),
+        ]);
 
         foreach ($transactions as $t) {
             fputcsv($handle, [

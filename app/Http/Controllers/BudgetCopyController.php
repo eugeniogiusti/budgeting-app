@@ -12,6 +12,7 @@ class BudgetCopyController extends Controller
 
     public function __construct(private BudgetService $budgetService) {}
 
+    // Copy budget assignments from the previous month into the selected month.
     public function store(): RedirectResponse
     {
         $date = $this->getSelectedMonth();

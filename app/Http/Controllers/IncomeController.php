@@ -11,11 +11,13 @@ class IncomeController extends Controller
 {
     public function __construct(private BudgetService $budgetService) {}
 
+    // Show the form to record a new income entry.
     public function create(): View
     {
         return $this->mobileView('income.create');
     }
 
+    // Persist a new income transaction and redirect to home.
     public function store(StoreIncomeRequest $request): RedirectResponse
     {
         $this->budgetService->storeIncome($request->validated());

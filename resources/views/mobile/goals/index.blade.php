@@ -4,7 +4,7 @@
 <div class="max-w-lg mx-auto px-4">
 
     {{-- Header --}}
-    <div class="pt-12 pb-6 flex items-center justify-between">
+    <div class="pt-4 pb-6 flex items-center justify-between">
         <h1 class="text-2xl font-bold">{{ __('ui.nav_goals') }}</h1>
         <a href="{{ route('goals.create') }}"
            class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">

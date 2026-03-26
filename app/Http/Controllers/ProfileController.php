@@ -9,11 +9,13 @@ use Illuminate\Validation\Rules\Password;
 
 class ProfileController extends Controller
 {
+    // Display the authenticated user's profile page.
     public function index()
     {
         return view('profile.index', ['user' => Auth::user()]);
     }
 
+    // Update the authenticated user's name and email.
     public function updateInfo(Request $request)
     {
         $user = Auth::user();
@@ -28,6 +30,7 @@ class ProfileController extends Controller
         return back()->with('success_info', __('ui.profile_updated'));
     }
 
+    // Change the authenticated user's password after verifying the current one.
     public function updatePassword(Request $request)
     {
         $request->validate([

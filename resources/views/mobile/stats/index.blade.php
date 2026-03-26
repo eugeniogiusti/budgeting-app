@@ -4,7 +4,7 @@
 <div class="max-w-lg mx-auto px-4">
 
     {{-- Header --}}
-    <div class="pt-12 pb-6">
+    <div class="pt-4 pb-6">
         <h1 class="text-2xl font-bold">{{ __('ui.nav_stats') }}</h1>
         <div class="flex items-center gap-2 mt-1">
             <a href="{{ $prevUrl }}" class="w-7 h-7 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition">

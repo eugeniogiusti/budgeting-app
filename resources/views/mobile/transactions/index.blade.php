@@ -4,7 +4,7 @@
 <div class="max-w-lg mx-auto px-4">
 
     {{-- Header --}}
-    <div class="pt-12 pb-4 flex items-center gap-4">
+    <div class="pt-4 pb-4 flex items-center gap-4">
         <a href="{{ route('home', ['year' => $year, 'month' => $month]) }}"
            class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0">
             <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">

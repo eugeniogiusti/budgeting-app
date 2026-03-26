@@ -11,11 +11,13 @@ class ImportController extends Controller
 {
     public function __construct(private ImportService $importService) {}
 
+    // Show the import page.
     public function index(): View
     {
         return view('import.index');
     }
 
+    // Handle CSV import from a file upload or pasted text content. Duplicates are skipped by the service.
     public function store(Request $request): RedirectResponse
     {
         if ($request->input('mode') === 'paste') {

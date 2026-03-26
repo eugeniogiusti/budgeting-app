@@ -20,6 +20,7 @@ class TransactionController extends Controller
 
     public function __construct(private BudgetService $budgetService) {}
 
+    // List transactions for the selected month, optionally filtered by type and/or category.
     public function index(): View
     {
         $date       = $this->getSelectedMonth();
@@ -45,6 +46,7 @@ class TransactionController extends Controller
         ]);
     }
 
+    // Show the form to record a new expense transaction.
     public function create(): View
     {
         return $this->mobileView('transactions.create', [
@@ -53,6 +55,7 @@ class TransactionController extends Controller
         ]);
     }
 
+    // Persist a new expense; flashes a budget-exceeded warning if the category limit is breached.
     public function store(StoreExpenseRequest $request): RedirectResponse
     {
         $transaction = $this->budgetService->storeExpense($request->validated());
@@ -65,6 +68,7 @@ class TransactionController extends Controller
         return redirect()->route('home');
     }
 
+    // Show the edit form for an existing transaction (expense or income).
     public function edit(Transaction $transaction): View
     {
         return $this->mobileView('transactions.edit', [
@@ -73,6 +77,7 @@ class TransactionController extends Controller
         ]);
     }
 
+    // Update a transaction; category_id is only applied for expenses, not for income.
     public function update(Request $request, Transaction $transaction): RedirectResponse
     {
         $rules = [
@@ -102,6 +107,7 @@ class TransactionController extends Controller
         return redirect()->route('transactions.index', ['year' => $date->year, 'month' => $date->month]);
     }
 
+    // Delete a transaction and redirect back to the same month view.
     public function destroy(Transaction $transaction): RedirectResponse
     {
         $year  = request()->integer('year',  Carbon::now()->year);

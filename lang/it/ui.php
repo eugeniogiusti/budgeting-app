@@ -22,6 +22,7 @@ return [
     'note' => 'Nota',
     'note_placeholder' => 'Es. Stipendio, Bonus...',
     'date' => 'Data',
+    'type' => 'Tipo',
     'submit_income' => 'Aggiungi Entrata',
 
     // Expense form

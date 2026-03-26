@@ -4,6 +4,7 @@ namespace App\Helpers;
 
 class MenuHelper
 {
+    // Return the primary navigation items (Home, Budget, Transactions, Stats, Goals).
     public static function getMainNavItems()
     {
         return [
@@ -35,6 +36,7 @@ class MenuHelper
         ];
     }
 
+    // Return the secondary navigation items shown under the "Other" group (Categories, Settings).
     public static function getOthersItems()
     {
         return [
@@ -51,6 +53,7 @@ class MenuHelper
         ];
     }
 
+    // Return all menu groups (Menu + Other) used to render the sidebar navigation.
     public static function getMenuGroups()
     {
         return [
@@ -65,11 +68,13 @@ class MenuHelper
         ];
     }
 
+    // Check whether the given path matches the current request URL (used to highlight the active nav item).
     public static function isActive($path)
     {
         return request()->is(ltrim($path, '/'));
     }
 
+    // Return the inline SVG markup for a named icon; falls back to a star icon if the name is not found.
     public static function getIconSvg($iconName)
     {
         $icons = [

@@ -3,23 +3,26 @@
 @section('content')
 <div class="max-w-lg mx-auto px-4">
 
-    {{-- Header --}}
-    <div class="pt-12 pb-6 flex items-center justify-between">
-        <div class="flex items-center gap-4">
-            <a href="{{ route('budget.index') }}" class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0">
-                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
-                </svg>
-            </a>
-            <h1 class="text-2xl font-bold">{{ __('ui.categories') }}</h1>
-        </div>
-        <a href="{{ route('categories.create') }}"
-           class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
+@section('topbar-left')
+    <div class="flex items-center gap-3">
+        <a href="{{ route('budget.index') }}" class="w-9 h-9 bg-white/20 rounded-full flex items-center justify-center">
             <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-                <path stroke-linecap="round" d="M12 5v14m-7-7h14"/>
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
             </svg>
         </a>
+        <span class="text-white font-bold text-lg">{{ __('ui.categories') }}</span>
     </div>
+@endsection
+
+@section('topbar-right')
+    <a href="{{ route('categories.create') }}" class="w-9 h-9 bg-white/20 rounded-full flex items-center justify-center">
+        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" d="M12 5v14m-7-7h14"/>
+        </svg>
+    </a>
+@endsection
+
+    <div class="pt-4"></div>
 
     @if(session('success'))
         <div class="bg-lime-400/20 text-lime-200 rounded-2xl px-5 py-3 mb-4 text-sm">{{ session('success') }}</div>

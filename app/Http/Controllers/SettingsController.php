@@ -9,6 +9,7 @@ use Illuminate\View\View;
 
 class SettingsController extends Controller
 {
+    // Show the settings page with available locale and currency options.
     public function index(): View
     {
         $localeLabels = ['it' => 'Italiano', 'en' => 'English'];
@@ -32,6 +33,7 @@ class SettingsController extends Controller
         ]);
     }
 
+    // Persist locale and currency settings and apply them immediately.
     public function update(StoreSettingsRequest $request): RedirectResponse
     {
         Setting::set('locale',   $request->validated('locale'));

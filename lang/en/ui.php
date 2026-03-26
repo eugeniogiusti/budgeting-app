@@ -22,6 +22,7 @@ return [
     'note' => 'Note',
     'note_placeholder' => 'E.g. Salary, Bonus...',
     'date' => 'Date',
+    'type' => 'Type',
     'submit_income' => 'Add Income',
 
     // Expense form

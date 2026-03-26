@@ -12,6 +12,7 @@ class StatsController extends Controller
 {
     use ResolvesMonth;
 
+    // Display spending statistics for the selected month: per-category breakdown and a 6-month trend chart.
     public function index(): View
     {
         $date = $this->getSelectedMonth();

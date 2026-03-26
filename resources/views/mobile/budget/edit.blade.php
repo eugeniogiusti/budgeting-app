@@ -4,7 +4,7 @@
 <div class="max-w-lg mx-auto px-4">
 
     {{-- Header --}}
-    <div class="pt-12 pb-6 flex items-center gap-4">
+    <div class="pt-4 pb-6 flex items-center gap-4">
         <a href="{{ route('budget.index') }}" class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
             <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>

@@ -9,6 +9,7 @@ class ExportController extends Controller
 {
     public function __construct(private ExportService $exportService) {}
 
+    // Generate and stream a CSV file containing all transactions.
     public function csv(): BinaryFileResponse
     {
         $filePath = $this->exportService->exportCsv();

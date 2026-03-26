@@ -130,7 +130,8 @@ lang/
 └── en/ui.php               # Traduzioni inglese
 
 resources/views/
-├── layouts/                # app.blade.php, sidebar, header
+├── layouts/                # app.blade.php (desktop), mobile.blade.php (mobile), sidebar, header
+├── mobile/                 # Viste ottimizzate per smartphone (gradient UI, bottom nav)
 ├── home/                   # Dashboard
 ├── transactions/           # Lista + form transazioni
 ├── budget/                 # Budget mensile

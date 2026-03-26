@@ -37,11 +37,13 @@ class Category extends Model
         ];
     }
 
+    // All transactions that belong to this category.
     public function transactions(): HasMany
     {
         return $this->hasMany(Transaction::class);
     }
 
+    // All monthly budget allocations for this category.
     public function budgets(): HasMany
     {
         return $this->hasMany(Budget::class);

@@ -16,6 +16,7 @@ class Budget extends Model
         ];
     }
 
+    // The category this budget allocation belongs to.
     public function category(): BelongsTo
     {
         return $this->belongsTo(Category::class);

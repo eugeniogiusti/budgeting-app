@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 class SidebarController extends Controller
 {
+    // Return the sidebar menu structure (groups, items, sub-items) to the sidebar component.
     public function getMenuData()
     {
         $menuGroups = [

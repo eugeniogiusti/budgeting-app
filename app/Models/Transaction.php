@@ -17,6 +17,7 @@ class Transaction extends Model
         ];
     }
 
+    // The category this transaction is assigned to (null for income).
     public function category(): BelongsTo
     {
         return $this->belongsTo(Category::class);

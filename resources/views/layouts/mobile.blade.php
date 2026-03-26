@@ -10,7 +10,27 @@
 </head>
 <body class="min-h-screen bg-gradient-to-br from-[#667eea] to-[#4ecdc4] text-white pb-24">
 
-    @yield('content')
+    {{-- Top Bar --}}
+    <header class="fixed top-0 left-0 right-0 z-50 bg-[#667eea]/80 backdrop-blur-lg">
+        <div class="max-w-lg mx-auto px-4 h-14 flex items-center justify-between">
+            @hasSection('topbar-left')
+                @yield('topbar-left')
+            @else
+                <div class="flex items-center gap-2.5">
+                    <img src="/images/logo/logo-icon.svg" alt="BudgetKit" width="26" height="26" class="flex-shrink-0">
+                    <span class="text-white font-bold text-lg tracking-tight">BudgetKit</span>
+                </div>
+            @endif
+            <div class="flex items-center gap-2">
+                @yield('topbar-right')
+            </div>
+        </div>
+    </header>
+
+    {{-- Content below fixed top bar --}}
+    <div class="pt-14">
+        @yield('content')
+    </div>
 
     {{-- Bottom Navigation --}}
     <nav class="fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-lg border-t border-gray-200 z-50">

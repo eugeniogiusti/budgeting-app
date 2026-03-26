@@ -13,6 +13,7 @@ class HomeController extends Controller
 {
     use ResolvesMonth;
 
+    // Render the home dashboard with income, expenses, budget categories and navigation for the selected month.
     public function index(): View
     {
         $date    = $this->getSelectedMonth();

@@ -13,6 +13,7 @@ class GoalController extends Controller
 {
     public function __construct(private GoalService $goalService) {}
 
+    // List all savings goals with their current progress.
     public function index(): View
     {
         return $this->mobileView('goals.index', [
@@ -20,11 +21,13 @@ class GoalController extends Controller
         ]);
     }
 
+    // Show the form to create a new savings goal.
     public function create(): View
     {
         return $this->mobileView('goals.create');
     }
 
+    // Persist a new savings goal.
     public function store(StoreGoalRequest $request): RedirectResponse
     {
         $this->goalService->create($request->validated());
@@ -34,11 +37,13 @@ class GoalController extends Controller
         return redirect()->route('goals.index');
     }
 
+    // Show the edit form for a savings goal.
     public function edit(Category $goal): View
     {
         return $this->mobileView('goals.edit', ['goal' => $goal]);
     }
 
+    // Update an existing savings goal's details.
     public function update(StoreGoalRequest $request, Category $goal): RedirectResponse
     {
         $this->goalService->update($goal, $request->validated());
@@ -48,6 +53,7 @@ class GoalController extends Controller
         return redirect()->route('goals.index');
     }
 
+    // Delete a savings goal.
     public function destroy(Category $goal): RedirectResponse
     {
         $this->goalService->delete($goal);
