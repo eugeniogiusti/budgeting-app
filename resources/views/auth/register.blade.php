@@ -9,10 +9,10 @@
             <div class="mx-auto flex w-full max-w-md flex-1 flex-col justify-center">
                 <div class="mb-5 sm:mb-8">
                     <h1 class="text-title-sm sm:text-title-md mb-2 font-semibold text-gray-800 dark:text-white/90">
-                        {{ __('ui.sign_up') }}
+                        {{ __('auth.sign_up') }}
                     </h1>
                     <p class="text-sm text-gray-500 dark:text-gray-400">
-                        {{ __('ui.sign_up_subtitle') }}
+                        {{ __('auth.sign_up_subtitle') }}
                     </p>
                 </div>
 
@@ -23,10 +23,10 @@
                         <!-- Name -->
                         <div>
                             <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
-                                {{ __('ui.name') }} <span class="text-red-500">*</span>
+                                {{ __('auth.name') }} <span class="text-red-500">*</span>
                             </label>
                             <input type="text" name="name" value="{{ old('name') }}" required autofocus
-                                placeholder="{{ __('ui.name_placeholder') }}"
+                                placeholder="{{ __('auth.name_placeholder') }}"
                                 class="h-11 w-full rounded-lg border px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30 @error('name') border-red-500 @else border-gray-300 @enderror">
                             @error('name')
                                 <p class="mt-1 text-xs text-red-500">{{ $message }}</p>
@@ -69,7 +69,7 @@
                         <!-- Confirm Password -->
                         <div>
                             <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
-                                {{ __('ui.confirm_password') }} <span class="text-red-500">*</span>
+                                {{ __('auth.confirm_password') }} <span class="text-red-500">*</span>
                             </label>
                             <input type="password" name="password_confirmation" required
                                 placeholder="••••••••"
@@ -79,16 +79,16 @@
                         <!-- Submit -->
                         <button type="submit"
                             class="flex w-full items-center justify-center rounded-lg bg-brand-500 px-4 py-3 text-sm font-medium text-white transition hover:bg-brand-600">
-                            {{ __('ui.sign_up') }}
+                            {{ __('auth.sign_up') }}
                         </button>
                     </div>
                 </form>
 
                 <div class="mt-5">
                     <p class="text-center text-sm text-gray-700 dark:text-gray-400">
-                        {{ __('ui.have_account') }}
+                        {{ __('auth.have_account') }}
                         <a href="{{ route('login') }}" class="text-brand-500 hover:text-brand-600 dark:text-brand-400">
-                            {{ __('ui.sign_in') }}
+                            {{ __('auth.sign_in') }}
                         </a>
                     </p>
                 </div>
@@ -102,7 +102,7 @@
                 <div class="flex max-w-xs flex-col items-center gap-4">
                     <img src="/images/logo/logo-icon.svg" alt="BudgetKit" width="64" height="64" />
                     <span class="text-3xl font-bold text-white tracking-tight">BudgetKit</span>
-                    <p class="text-center text-sm text-gray-400">{{ __('ui.app_tagline') }}</p>
+                    <p class="text-center text-sm text-gray-400">{{ __('auth.app_tagline') }}</p>
                 </div>
             </div>
         </div>

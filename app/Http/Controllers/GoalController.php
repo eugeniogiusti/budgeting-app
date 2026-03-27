@@ -32,7 +32,7 @@ class GoalController extends Controller
     {
         $this->goalService->create($request->validated());
 
-        session()->flash('success', __('ui.toast_saved'));
+        session()->flash('success', __('notifications.toast_saved'));
 
         return redirect()->route('goals.index');
     }
@@ -48,7 +48,7 @@ class GoalController extends Controller
     {
         $this->goalService->update($goal, $request->validated());
 
-        session()->flash('success', __('ui.toast_saved'));
+        session()->flash('success', __('notifications.toast_saved'));
 
         return redirect()->route('goals.index');
     }
@@ -58,7 +58,7 @@ class GoalController extends Controller
     {
         $this->goalService->delete($goal);
 
-        session()->flash('success', __('ui.toast_deleted'));
+        session()->flash('success', __('notifications.toast_deleted'));
 
         return redirect()->route('goals.index');
     }

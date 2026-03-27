@@ -4,11 +4,11 @@
 
 {{-- Header --}}
 <div class="mb-6 flex items-center justify-between">
-    <h1 class="text-2xl font-bold text-gray-800 dark:text-white/90">{{ __('ui.nav_goals') }}</h1>
+    <h1 class="text-2xl font-bold text-gray-800 dark:text-white/90">{{ __('nav.nav_goals') }}</h1>
     <a href="{{ route('goals.create') }}"
        class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-brand-500 hover:bg-brand-600 text-white text-sm font-semibold transition">
         <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" d="M12 5v14m-7-7h14"/></svg>
-        {{ __('ui.new_goal') }}
+        {{ __('goals.new_goal') }}
     </a>
 </div>
 
@@ -29,7 +29,7 @@
                     <div class="font-bold text-gray-800 dark:text-white/90">{{ $goal->name }}</div>
                     @if($goal->target_date)
                         <div class="text-xs text-gray-400 dark:text-gray-500 mt-0.5">
-                            {{ __('ui.goal_by') }} {{ \Carbon\Carbon::parse($goal->target_date)->format('M Y') }}
+                            {{ __('goals.goal_by') }} {{ \Carbon\Carbon::parse($goal->target_date)->format('M Y') }}
                         </div>
                     @endif
                 </div>
@@ -40,7 +40,7 @@
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
                 </a>
                 <form action="{{ route('goals.destroy', $goal) }}" method="POST"
-                      onsubmit="return confirm('{{ __('ui.confirm_delete_goal') }}')">
+                      onsubmit="return confirm('{{ __('goals.confirm_delete_goal') }}')">
                     @csrf
                     <button type="submit"
                             class="w-8 h-8 inline-flex items-center justify-center rounded-lg text-gray-400 hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 transition">
@@ -71,7 +71,7 @@
                 </span>
                 <a href="{{ route('budget.edit', $goal) }}"
                    class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-brand-50 text-brand-600 hover:bg-brand-100 dark:bg-brand-900/20 dark:text-brand-400 transition">
-                    {{ __('ui.goal_add_funds') }}
+                    {{ __('goals.goal_add_funds') }}
                 </a>
             </div>
         </div>
@@ -79,11 +79,11 @@
 @empty
     <div class="rounded-2xl border border-gray-200 bg-white dark:border-gray-800 dark:bg-white/[0.03] py-16 text-center">
         <div class="text-5xl mb-4">🎯</div>
-        <div class="font-bold text-gray-800 dark:text-white/90 text-lg mb-1">{{ __('ui.no_goals') }}</div>
-        <div class="text-gray-400 dark:text-gray-500 text-sm mb-6">{{ __('ui.no_goals_subtitle') }}</div>
+        <div class="font-bold text-gray-800 dark:text-white/90 text-lg mb-1">{{ __('goals.no_goals') }}</div>
+        <div class="text-gray-400 dark:text-gray-500 text-sm mb-6">{{ __('goals.no_goals_subtitle') }}</div>
         <a href="{{ route('goals.create') }}"
            class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-brand-500 hover:bg-brand-600 text-white text-sm font-semibold transition">
-            {{ __('ui.create_goal') }}
+            {{ __('goals.create_goal') }}
         </a>
     </div>
 @endforelse

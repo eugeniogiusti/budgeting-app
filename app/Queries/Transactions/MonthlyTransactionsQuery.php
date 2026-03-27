@@ -5,6 +5,9 @@ namespace App\Queries\Transactions;
 use App\Models\Transaction;
 use Illuminate\Support\Collection;
 
+// Returns all transactions for a given month, optionally filtered by type ('income'/'expense')
+// and/or category. Results are sorted newest first (date DESC, id DESC).
+// Used on the transactions index page with the active filter params.
 class MonthlyTransactionsQuery
 {
     public function __construct(

@@ -38,12 +38,12 @@
             <a href="{{ route('home') }}"
                class="flex flex-col items-center gap-0.5 {{ request()->routeIs('home') ? 'text-[#667eea]' : 'text-gray-400' }}">
                 <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 3l9 8h-3v10h-5v-6H11v6H6V11H3l9-8z"/></svg>
-                <span class="text-[10px] font-semibold">{{ __('ui.nav_home') }}</span>
+                <span class="text-[10px] font-semibold">{{ __('nav.nav_home') }}</span>
             </a>
             <a href="{{ route('budget.index') }}"
                class="flex flex-col items-center gap-0.5 {{ request()->routeIs('budget.*') ? 'text-[#667eea]' : 'text-gray-400' }}">
                 <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M3 3h18v2H3V3zm0 4h18v14H3V7zm2 2v10h14V9H5zm2 2h4v2H7v-2zm6 0h4v2h-4v-2zm-6 4h4v2H7v-2zm6 0h4v2h-4v-2z"/></svg>
-                <span class="text-[10px] font-semibold">{{ __('ui.nav_budget') }}</span>
+                <span class="text-[10px] font-semibold">{{ __('nav.nav_budget') }}</span>
             </a>
             {{-- FAB --}}
             <a href="{{ route('transactions.create') }}" class="relative -top-4">
@@ -54,12 +54,12 @@
             <a href="{{ route('transactions.index') }}"
                class="flex flex-col items-center gap-0.5 {{ request()->routeIs('transactions.*') ? 'text-[#667eea]' : 'text-gray-400' }}">
                 <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"/></svg>
-                <span class="text-[10px] font-semibold">{{ __('ui.nav_transactions') }}</span>
+                <span class="text-[10px] font-semibold">{{ __('nav.nav_transactions') }}</span>
             </a>
             <a href="{{ route('stats.index') }}"
                class="flex flex-col items-center gap-0.5 {{ request()->routeIs('stats.*') ? 'text-[#667eea]' : 'text-gray-400' }}">
                 <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M5 9.2h3V19H5V9.2zM10.6 5h2.8v14h-2.8V5zm5.6 8H19v6h-2.8v-6z"/></svg>
-                <span class="text-[10px] font-semibold">{{ __('ui.nav_stats') }}</span>
+                <span class="text-[10px] font-semibold">{{ __('nav.nav_stats') }}</span>
             </a>
         </div>
     </nav>

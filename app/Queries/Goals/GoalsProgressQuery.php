@@ -5,6 +5,11 @@ namespace App\Queries\Goals;
 use App\Models\Category;
 use Illuminate\Support\Collection;
 
+// Returns all goal categories enriched with progress data.
+// Goals reuse the Category model with is_goal=true; savings are stored as budget entries.
+// Each goal gets:
+//   - saved:        total amount saved across all budget entries for this goal
+//   - progress_pct: percentage toward target_amount, capped at 100
 class GoalsProgressQuery
 {
     public function handle(): Collection

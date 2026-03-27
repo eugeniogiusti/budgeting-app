@@ -4,6 +4,8 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+// Validates the create/update category form (CategoryController@store / @update).
+// color is optional (hex, max 7 chars e.g. #ff0000); if omitted the UI uses a default.
 class StoreCategoryRequest extends FormRequest
 {
     public function authorize(): bool

@@ -10,27 +10,27 @@ class MenuHelper
         return [
             [
                 'icon' => 'dashboard',
-                'name' => __('ui.home'),
+                'name' => __('home.home'),
                 'path' => '/',
             ],
             [
                 'icon' => 'tables',
-                'name' => __('ui.nav_budget'),
+                'name' => __('nav.nav_budget'),
                 'path' => '/budget',
             ],
             [
                 'icon' => 'task',
-                'name' => __('ui.nav_transactions'),
+                'name' => __('nav.nav_transactions'),
                 'path' => '/transactions',
             ],
             [
                 'icon' => 'charts',
-                'name' => __('ui.nav_stats'),
+                'name' => __('nav.nav_stats'),
                 'path' => '/stats',
             ],
             [
                 'icon' => 'goal',
-                'name' => __('ui.nav_goals'),
+                'name' => __('nav.nav_goals'),
                 'path' => '/goals',
             ],
         ];
@@ -42,12 +42,12 @@ class MenuHelper
         return [
             [
                 'icon' => 'forms',
-                'name' => __('ui.categories'),
+                'name' => __('categories.categories'),
                 'path' => '/categories',
             ],
             [
                 'icon' => 'settings',
-                'name' => __('ui.settings'),
+                'name' => __('settings.settings'),
                 'path' => '/settings',
             ],
         ];
@@ -58,11 +58,11 @@ class MenuHelper
     {
         return [
             [
-                'title' => __('ui.nav_menu'),
+                'title' => __('nav.nav_menu'),
                 'items' => self::getMainNavItems()
             ],
             [
-                'title' => __('ui.nav_other'),
+                'title' => __('nav.nav_other'),
                 'items' => self::getOthersItems()
             ]
         ];

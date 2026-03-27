@@ -4,6 +4,9 @@ namespace App\Queries\Stats;
 
 use App\Models\Category;
 
+// Returns spending breakdown by category for a given month, sorted by highest spend.
+// Categories with zero spending are excluded.
+// Each entry includes name, emoji, amount and pct (percentage of total monthly spending).
 class SpendingByCategoryQuery
 {
     public function __construct(

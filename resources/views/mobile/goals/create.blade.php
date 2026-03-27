@@ -10,7 +10,7 @@
                 <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
             </svg>
         </a>
-        <h1 class="text-2xl font-bold">{{ __('ui.new_goal') }}</h1>
+        <h1 class="text-2xl font-bold">{{ __('goals.new_goal') }}</h1>
     </div>
 
     {{-- Form --}}
@@ -20,19 +20,19 @@
 
             <div class="mb-5">
                 <div class="flex gap-2 mb-1.5">
-                    <label class="text-gray-500 text-sm font-medium w-16 text-center">{{ __('ui.goal_emoji') }}</label>
-                    <label class="text-gray-500 text-sm font-medium flex-1">{{ __('ui.goal_name') }}</label>
+                    <label class="text-gray-500 text-sm font-medium w-16 text-center">{{ __('goals.goal_emoji') }}</label>
+                    <label class="text-gray-500 text-sm font-medium flex-1">{{ __('goals.goal_name') }}</label>
                 </div>
                 <div class="flex gap-3">
                     <input type="text" name="emoji" maxlength="4" placeholder="🎯"
                            class="w-16 text-center px-2 py-3.5 bg-gray-100 rounded-2xl text-2xl focus:outline-none focus:ring-2 focus:ring-[#667eea]/50">
-                    <input type="text" name="name" required placeholder="{{ __('ui.goal_name_placeholder') }}"
+                    <input type="text" name="name" required placeholder="{{ __('goals.goal_name_placeholder') }}"
                            class="flex-1 px-4 py-3.5 bg-gray-100 rounded-2xl text-gray-800 placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-[#667eea]/50">
                 </div>
             </div>
 
             <div class="mb-5">
-                <label class="block text-gray-500 text-sm font-medium mb-1.5">{{ __('ui.goal_target') }}</label>
+                <label class="block text-gray-500 text-sm font-medium mb-1.5">{{ __('goals.goal_target') }}</label>
                 <div class="relative">
                     <span class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-xl font-bold">{{ $currency }}</span>
                     <input type="number" name="target_amount" step="0.01" min="1" required
@@ -43,8 +43,8 @@
 
             <div class="mb-8">
                 <label class="block text-gray-500 text-sm font-medium mb-1.5">
-                    {{ __('ui.goal_date') }}
-                    <span class="text-gray-300 font-normal ml-1">{{ __('ui.optional') }}</span>
+                    {{ __('goals.goal_date') }}
+                    <span class="text-gray-300 font-normal ml-1">{{ __('goals.optional') }}</span>
                 </label>
                 <input type="date" name="target_date"
                        class="w-full px-4 py-3.5 bg-gray-100 rounded-2xl text-gray-800 focus:outline-none focus:ring-2 focus:ring-[#667eea]/50">
@@ -52,7 +52,7 @@
 
             <button type="submit"
                     class="w-full py-4 bg-gradient-to-r from-[#667eea] to-[#4ecdc4] text-white font-bold rounded-2xl text-lg transition hover:opacity-90">
-                {{ __('ui.create_goal') }}
+                {{ __('goals.create_goal') }}
             </button>
         </form>
     </div>

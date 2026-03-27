@@ -21,6 +21,7 @@ class StatsController extends Controller
             'monthName'          => $date->translatedFormat('F Y'),
             'spendingByCategory' => (new SpendingByCategoryQuery($date->year, $date->month))->handle(),
             'monthlyTrend'       => (new MonthlyTrendQuery(6))->handle(),
+            'chartColors'        => config('budget.chart_colors'),
             'prevUrl'            => route('stats.index', $this->monthParams($date, -1)),
             'nextUrl'            => route('stats.index', $this->monthParams($date, +1)),
             'isCurrentMonth'     => $date->isSameMonth(Carbon::now()),

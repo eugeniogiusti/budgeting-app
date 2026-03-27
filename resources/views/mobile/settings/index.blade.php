@@ -10,7 +10,7 @@
                 <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
             </svg>
         </a>
-        <span class="text-white font-bold text-lg">{{ __('ui.settings') }}</span>
+        <span class="text-white font-bold text-lg">{{ __('settings.settings') }}</span>
     </div>
 @endsection
 
@@ -27,7 +27,7 @@
 
             {{-- Language --}}
             <div>
-                <label class="block text-xs font-semibold text-gray-400 uppercase tracking-wide mb-2">{{ __('ui.language') }}</label>
+                <label class="block text-xs font-semibold text-gray-400 uppercase tracking-wide mb-2">{{ __('settings.language') }}</label>
                 <select name="locale"
                         class="w-full px-4 py-3.5 bg-gray-100 rounded-2xl text-gray-800 font-medium focus:outline-none focus:ring-2 focus:ring-[#667eea]/30 appearance-none">
                     @foreach($locales as $code => $label)
@@ -38,7 +38,7 @@
 
             {{-- Currency --}}
             <div>
-                <label class="block text-xs font-semibold text-gray-400 uppercase tracking-wide mb-2">{{ __('ui.currency') }}</label>
+                <label class="block text-xs font-semibold text-gray-400 uppercase tracking-wide mb-2">{{ __('settings.currency') }}</label>
                 <select name="currency"
                         class="w-full px-4 py-3.5 bg-gray-100 rounded-2xl text-gray-800 font-medium focus:outline-none focus:ring-2 focus:ring-[#667eea]/30 appearance-none">
                     @foreach($currencies as $code => $label)
@@ -51,7 +51,7 @@
 
         <button type="submit"
                 class="w-full bg-gradient-to-r from-[#667eea] to-[#4ecdc4] text-white font-bold py-4 rounded-2xl shadow-lg shadow-[#667eea]/30 text-base">
-            {{ __('ui.save_settings') }}
+            {{ __('settings.save_settings') }}
         </button>
     </form>
 
@@ -61,7 +61,7 @@
         <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
         </svg>
-        {{ __('ui.profile') }}
+        {{ __('auth.profile') }}
     </a>
 
     {{-- Export --}}
@@ -70,7 +70,7 @@
         <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3M3 17V7a2 2 0 012-2h6l2 2h6a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
         </svg>
-        {{ __('ui.export_csv') }}
+        {{ __('import.export_csv') }}
     </a>
 
     {{-- Logout --}}
@@ -81,7 +81,7 @@
             <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/>
             </svg>
-            {{ __('ui.logout') }}
+            {{ __('auth.logout') }}
         </button>
     </form>
 

@@ -6,8 +6,11 @@ use App\Models\Budget;
 use App\Models\Transaction;
 use Carbon\Carbon;
 
+// Handles write operations related to budget and transactions.
+// Read/aggregation logic lives in the Queries layer.
 class BudgetService
 {
+    // Creates a new expense transaction from validated form data.
     public function storeExpense(array $data): Transaction
     {
         return Transaction::create([
@@ -19,6 +22,7 @@ class BudgetService
         ]);
     }
 
+    // Creates a new income transaction. Income has no category_id.
     public function storeIncome(array $data): Transaction
     {
         return Transaction::create([
@@ -29,6 +33,8 @@ class BudgetService
         ]);
     }
 
+    // Sets (or overwrites) the budget limit for a category in a given month.
+    // Uses updateOrCreate so calling it twice is safe (idempotent).
     public function assignBudget(int $categoryId, int $year, int $month, float $amount): void
     {
         Budget::updateOrCreate(
@@ -37,6 +43,9 @@ class BudgetService
         );
     }
 
+    // Copies all non-zero budget entries from the previous month into the given month.
+    // Skips categories that already have a budget entry for the target month.
+    // Returns the number of entries actually created.
     public function copyBudgetFromPreviousMonth(int $year, int $month): int
     {
         $prev = Carbon::createFromDate($year, $month, 1)->subMonth();

@@ -12,24 +12,11 @@ class SettingsController extends Controller
     // Show the settings page with available locale and currency options.
     public function index(): View
     {
-        $localeLabels = ['it' => 'Italiano', 'en' => 'English'];
-        $currencyLabels = ['EUR' => 'EUR (€)', 'USD' => 'USD ($)', 'GBP' => 'GBP (£)', 'CHF' => 'CHF'];
-
-        $locales = [];
-        foreach (config('budget.locales') as $code) {
-            $locales[$code] = $localeLabels[$code] ?? $code;
-        }
-
-        $currencies = [];
-        foreach (config('budget.currencies') as $code) {
-            $currencies[$code] = $currencyLabels[$code] ?? $code;
-        }
-
         return $this->mobileView('settings.index', [
-            'locale'       => Setting::get('locale',    config('budget.default_locale')),
+            'locale'       => Setting::get('locale',   config('budget.default_locale')),
             'currencyCode' => Setting::get('currency', config('budget.default_currency')),
-            'locales'      => $locales,
-            'currencies'   => $currencies,
+            'locales'      => config('budget.locales'),
+            'currencies'   => config('budget.currencies'),
         ]);
     }
 
@@ -39,7 +26,7 @@ class SettingsController extends Controller
         Setting::set('locale',   $request->validated('locale'));
         Setting::set('currency', $request->validated('currency'));
 
-        session()->flash('success', __('ui.toast_settings_saved'));
+        session()->flash('success', __('notifications.toast_settings_saved'));
 
         return redirect()->route('settings.index');
     }

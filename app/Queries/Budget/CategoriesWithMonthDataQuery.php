@@ -6,6 +6,12 @@ use App\Models\Category;
 use Carbon\Carbon;
 use Illuminate\Support\Collection;
 
+// Returns all non-goal categories enriched with budget data for the given month.
+// Each category gets four computed properties:
+//   - assigned:  budget amount set for this month
+//   - spent:     total expenses in this month
+//   - rollover:  leftover from all previous months (prev assigned - prev spent), can be negative
+//   - available: assigned + rollover - spent (what remains to spend)
 class CategoriesWithMonthDataQuery
 {
     public function __construct(

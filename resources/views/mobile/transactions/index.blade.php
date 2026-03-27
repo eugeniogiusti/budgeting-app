@@ -12,7 +12,7 @@
             </svg>
         </a>
         <div class="flex-1 min-w-0">
-            <h1 class="text-2xl font-bold">{{ __('ui.transactions') }}</h1>
+            <h1 class="text-2xl font-bold">{{ __('transactions.transactions') }}</h1>
             <div class="flex items-center gap-2 mt-0.5">
                 <a href="{{ $prevUrl }}" class="w-6 h-6 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition">
                     <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
@@ -34,17 +34,17 @@
         <a href="{{ route('transactions.index', ['year' => $year, 'month' => $month]) }}"
            class="flex-shrink-0 px-4 py-2 rounded-full text-sm font-bold border transition
                   {{ !$activeType && !$activeCategoryId ? 'bg-white text-[#667eea] border-white' : 'bg-white/10 text-white border-white/40' }}">
-            {{ __('ui.filter_all') }}
+            {{ __('transactions.filter_all') }}
         </a>
         <a href="{{ route('transactions.index', ['year' => $year, 'month' => $month, 'type' => 'income']) }}"
            class="flex-shrink-0 px-4 py-2 rounded-full text-sm font-bold border transition
                   {{ $activeType === 'income' ? 'bg-emerald-400 text-white border-emerald-400' : 'bg-white/10 text-white border-white/40' }}">
-            {{ __('ui.income') }}
+            {{ __('home.income') }}
         </a>
         <a href="{{ route('transactions.index', ['year' => $year, 'month' => $month, 'type' => 'expense']) }}"
            class="flex-shrink-0 px-4 py-2 rounded-full text-sm font-bold border transition
                   {{ $activeType === 'expense' ? 'bg-red-400 text-white border-red-400' : 'bg-white/10 text-white border-white/40' }}">
-            {{ __('ui.expenses') }}
+            {{ __('home.expenses') }}
         </a>
         @foreach($categories as $cat)
             <a href="{{ route('transactions.index', ['year' => $year, 'month' => $month, 'category_id' => $cat->id]) }}"
@@ -68,9 +68,9 @@
                     <div class="flex-1 min-w-0">
                         <div class="text-gray-800 font-semibold text-sm truncate">
                             @if($transaction->type === 'income')
-                                {{ $transaction->note ?: __('ui.income') }}
+                                {{ $transaction->note ?: __('home.income') }}
                             @else
-                                {{ $transaction->category->name ?? __('ui.unknown_category') }}
+                                {{ $transaction->category->name ?? __('transactions.unknown_category') }}
                             @endif
                         </div>
                         <div class="text-gray-400 text-xs">
@@ -89,7 +89,7 @@
                     @csrf
                     <input type="hidden" name="year" value="{{ $year }}">
                     <input type="hidden" name="month" value="{{ $month }}">
-                    @php $deleteMsg = $transaction->type === 'income' ? __('ui.confirm_delete_income') : __('ui.confirm_delete'); @endphp
+                    @php $deleteMsg = $transaction->type === 'income' ? __('transactions.confirm_delete_income') : __('transactions.confirm_delete'); @endphp
                     <button type="button"
                             class="w-8 h-8 flex items-center justify-center text-gray-300 active:text-red-400 transition rounded-full"
                             onclick="nativeConfirm(this.closest('form'), '{{ $deleteMsg }}')">
@@ -102,7 +102,7 @@
         @empty
             <div class="px-5 py-12 text-center text-gray-400">
                 <div class="text-4xl mb-3">🎉</div>
-                <div class="font-medium">{{ __('ui.no_transactions') }}</div>
+                <div class="font-medium">{{ __('transactions.no_transactions') }}</div>
             </div>
         @endforelse
     </div>

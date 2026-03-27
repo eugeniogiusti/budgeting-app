@@ -3,13 +3,13 @@
 @section('content')
 
 <div class="mb-6">
-    <x-common.page-breadcrumb :pageTitle="__('ui.edit_category')" />
+    <x-common.page-breadcrumb :pageTitle="__('categories.edit_category')" />
 </div>
 
 <div class="max-w-2xl">
     <div class="rounded-2xl border border-gray-200 bg-white dark:border-gray-800 dark:bg-white/[0.03]">
         <div class="px-6 py-5 border-b border-gray-100 dark:border-gray-800">
-            <h3 class="text-base font-semibold text-gray-800 dark:text-white/90">{{ __('ui.edit_category') }}</h3>
+            <h3 class="text-base font-semibold text-gray-800 dark:text-white/90">{{ __('categories.edit_category') }}</h3>
         </div>
         <div class="p-6">
             <form action="{{ route('categories.update', $category) }}" method="POST">
@@ -18,8 +18,8 @@
                 {{-- Emoji + Nome --}}
                 <div class="mb-5">
                     <div class="flex gap-2 mb-1.5">
-                        <label class="text-sm font-medium text-gray-700 dark:text-gray-400 w-20 text-center">{{ __('ui.goal_emoji') }}</label>
-                        <label class="text-sm font-medium text-gray-700 dark:text-gray-400 flex-1">{{ __('ui.category_name') }} <span class="text-red-500">*</span></label>
+                        <label class="text-sm font-medium text-gray-700 dark:text-gray-400 w-20 text-center">{{ __('goals.goal_emoji') }}</label>
+                        <label class="text-sm font-medium text-gray-700 dark:text-gray-400 flex-1">{{ __('categories.category_name') }} <span class="text-red-500">*</span></label>
                     </div>
                     <div class="flex gap-3">
                         <input type="text" name="emoji" maxlength="5" required
@@ -34,7 +34,7 @@
 
                 {{-- Colore --}}
                 <div class="mb-8">
-                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-400 mb-2">{{ __('ui.category_color') }}</label>
+                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-400 mb-2">{{ __('categories.category_color') }}</label>
                     <input type="hidden" name="color" id="colorInput" value="{{ old('color', $category->color ?? '#667eea') }}">
                     <div class="flex gap-3 flex-wrap">
                         @foreach(['#667eea','#4ecdc4','#f093fb','#f5a623','#43e97b','#fa709a','#4facfe','#f7971e','#a18cd1','#ff6b6b'] as $c)
@@ -49,11 +49,11 @@
                 <div class="flex gap-3">
                     <a href="{{ route('categories.index') }}"
                        class="px-5 py-2.5 rounded-lg border border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 text-sm font-medium hover:bg-gray-50 dark:hover:bg-gray-800 transition">
-                        {{ __('ui.cancel') }}
+                        {{ __('transactions.cancel') }}
                     </a>
                     <button type="submit"
                             class="px-5 py-2.5 rounded-lg bg-brand-500 hover:bg-brand-600 text-white text-sm font-semibold transition">
-                        {{ __('ui.save_category') }}
+                        {{ __('categories.save_category') }}
                     </button>
                 </div>
             </form>

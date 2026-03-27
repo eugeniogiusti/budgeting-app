@@ -18,7 +18,7 @@
 
     {{-- Ready to Assign --}}
     <div class="bg-white/10 backdrop-blur-md rounded-2xl px-5 py-3 mb-5 flex items-center justify-between">
-        <span class="text-sm text-white/70 font-medium">{{ __('ui.ready_to_assign') }}</span>
+        <span class="text-sm text-white/70 font-medium">{{ __('home.ready_to_assign') }}</span>
         <span class="text-xl font-extrabold {{ $readyToAssign < 0 ? 'text-red-300' : 'text-lime-300' }}">
             {{ number_format($readyToAssign, 2, ',', '.') }} {{ $currency }}
         </span>
@@ -29,14 +29,14 @@
         <div class="grid grid-cols-2 gap-3 mb-6">
             <div class="bg-gray-50 rounded-2xl p-3 text-center">
                 <div class="text-red-500 font-bold text-lg">{{ number_format($spent, 2, ',', '.') }} {{ $currency }}</div>
-                <div class="text-gray-400 text-xs mt-0.5">{{ __('ui.spent') }}</div>
+                <div class="text-gray-400 text-xs mt-0.5">{{ __('budget.spent') }}</div>
             </div>
             <div class="bg-gray-50 rounded-2xl p-3 text-center">
                 @php $available = $assigned - $spent; @endphp
                 <div class="font-bold text-lg {{ $available < 0 ? 'text-red-500' : 'text-lime-600' }}">
                     {{ number_format($available, 2, ',', '.') }} {{ $currency }}
                 </div>
-                <div class="text-gray-400 text-xs mt-0.5">{{ __('ui.available') }}</div>
+                <div class="text-gray-400 text-xs mt-0.5">{{ __('home.available') }}</div>
             </div>
         </div>
 
@@ -46,7 +46,7 @@
             <input type="hidden" name="month" value="{{ $month }}">
 
             <div class="mb-6">
-                <label class="block text-gray-500 text-sm font-medium mb-1.5">{{ __('ui.assign_amount') }}</label>
+                <label class="block text-gray-500 text-sm font-medium mb-1.5">{{ __('budget.assign_amount') }}</label>
                 <div class="relative">
                     <span class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-xl font-bold">{{ $currency }}</span>
                     <input type="number" name="amount" step="0.01" min="0"
@@ -57,7 +57,7 @@
 
             <button type="submit"
                     class="w-full py-4 bg-gradient-to-r from-[#667eea] to-[#4ecdc4] text-white font-bold rounded-2xl text-lg transition hover:opacity-90">
-                {{ __('ui.save_budget') }}
+                {{ __('budget.save_budget') }}
             </button>
         </form>
     </div>

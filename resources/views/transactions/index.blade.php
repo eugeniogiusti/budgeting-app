@@ -5,7 +5,7 @@
 {{-- Header --}}
 <div class="mb-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
     <div>
-        <h1 class="text-2xl font-bold text-gray-800 dark:text-white/90">{{ __('ui.transactions') }}</h1>
+        <h1 class="text-2xl font-bold text-gray-800 dark:text-white/90">{{ __('transactions.transactions') }}</h1>
         <div class="flex items-center gap-2 mt-1">
             <a href="{{ $prevUrl }}" class="inline-flex items-center justify-center w-7 h-7 rounded-full bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 transition">
                 <svg class="w-4 h-4 text-gray-600 dark:text-gray-300" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
@@ -25,12 +25,12 @@
         <a href="{{ route('income.create') }}"
            class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-green-500 hover:bg-green-600 text-white text-sm font-semibold transition">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" d="M12 5v14m-7-7h14"/></svg>
-            {{ __('ui.new_income') }}
+            {{ __('transactions.new_income') }}
         </a>
         <a href="{{ route('transactions.create') }}"
            class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-brand-500 hover:bg-brand-600 text-white text-sm font-semibold transition">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" d="M12 5v14m-7-7h14"/></svg>
-            {{ __('ui.new_expense') }}
+            {{ __('transactions.new_expense') }}
         </a>
     </div>
 </div>
@@ -47,17 +47,17 @@
     <a href="{{ route('transactions.index', ['year' => $year, 'month' => $month]) }}"
        class="px-4 py-1.5 rounded-full text-sm font-semibold border transition
               {{ !$activeType && !$activeCategoryId ? 'bg-brand-500 text-white border-brand-500' : 'bg-white text-gray-600 border-gray-200 hover:border-brand-500 dark:bg-gray-800 dark:text-gray-300 dark:border-gray-700' }}">
-        {{ __('ui.filter_all') }}
+        {{ __('transactions.filter_all') }}
     </a>
     <a href="{{ route('transactions.index', ['year' => $year, 'month' => $month, 'type' => 'income']) }}"
        class="px-4 py-1.5 rounded-full text-sm font-semibold border transition
               {{ $activeType === 'income' ? 'bg-green-500 text-white border-green-500' : 'bg-white text-gray-600 border-gray-200 hover:border-green-500 dark:bg-gray-800 dark:text-gray-300 dark:border-gray-700' }}">
-        {{ __('ui.income') }}
+        {{ __('home.income') }}
     </a>
     <a href="{{ route('transactions.index', ['year' => $year, 'month' => $month, 'type' => 'expense']) }}"
        class="px-4 py-1.5 rounded-full text-sm font-semibold border transition
               {{ $activeType === 'expense' ? 'bg-red-500 text-white border-red-500' : 'bg-white text-gray-600 border-gray-200 hover:border-red-500 dark:bg-gray-800 dark:text-gray-300 dark:border-gray-700' }}">
-        {{ __('ui.expenses') }}
+        {{ __('home.expenses') }}
     </a>
     @foreach($categories as $cat)
         <a href="{{ route('transactions.index', ['year' => $year, 'month' => $month, 'category_id' => $cat->id]) }}"
@@ -84,9 +84,9 @@
             <div class="flex-1 min-w-0">
                 <div class="font-semibold text-sm text-gray-800 dark:text-white/90 truncate">
                     @if($transaction->type === 'income')
-                        {{ $transaction->note ?: __('ui.income') }}
+                        {{ $transaction->note ?: __('home.income') }}
                     @else
-                        {{ $transaction->category->name ?? __('ui.unknown_category') }}
+                        {{ $transaction->category->name ?? __('transactions.unknown_category') }}
                     @endif
                 </div>
                 <div class="text-xs text-gray-400 dark:text-gray-500 mt-0.5">
@@ -109,7 +109,7 @@
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
                 </a>
                 <form action="{{ route('transactions.destroy', $transaction) }}" method="POST"
-                      onsubmit="return confirm('{{ $transaction->type === 'income' ? __('ui.confirm_delete_income') : __('ui.confirm_delete') }}')">
+                      onsubmit="return confirm('{{ $transaction->type === 'income' ? __('transactions.confirm_delete_income') : __('transactions.confirm_delete') }}')">
                     @csrf
                     <input type="hidden" name="year" value="{{ $year }}">
                     <input type="hidden" name="month" value="{{ $month }}">
@@ -124,7 +124,7 @@
     @empty
         <div class="px-6 py-16 text-center">
             <div class="text-4xl mb-3">🎉</div>
-            <div class="text-gray-400 dark:text-gray-600 font-medium">{{ __('ui.no_transactions') }}</div>
+            <div class="text-gray-400 dark:text-gray-600 font-medium">{{ __('transactions.no_transactions') }}</div>
         </div>
     @endforelse
 </div>

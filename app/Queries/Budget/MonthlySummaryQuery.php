@@ -4,6 +4,8 @@ namespace App\Queries\Budget;
 
 use App\Models\Transaction;
 
+// Returns total income and total expenses for a given month.
+// Used on the home dashboard and budget page to show the month summary bar.
 class MonthlySummaryQuery
 {
     public function __construct(

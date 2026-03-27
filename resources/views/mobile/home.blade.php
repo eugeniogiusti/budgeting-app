@@ -31,13 +31,13 @@
     {{-- Ready to Assign Card --}}
     <div class="bg-white/10 backdrop-blur-md rounded-3xl p-6 mb-4">
         <div class="flex items-center justify-between mb-2">
-            <span class="text-white/70 text-sm font-medium">{{ __('ui.ready_to_assign') }}</span>
+            <span class="text-white/70 text-sm font-medium">{{ __('home.ready_to_assign') }}</span>
             @if($readyToAssign > 0)
-                <span class="px-3 py-1 bg-lime-400/20 text-lime-300 text-xs font-bold rounded-full">{{ __('ui.available') }}</span>
+                <span class="px-3 py-1 bg-lime-400/20 text-lime-300 text-xs font-bold rounded-full">{{ __('home.available') }}</span>
             @elseif($readyToAssign < 0)
-                <span class="px-3 py-1 bg-red-400/20 text-red-300 text-xs font-bold rounded-full">{{ __('ui.overspent') }}</span>
+                <span class="px-3 py-1 bg-red-400/20 text-red-300 text-xs font-bold rounded-full">{{ __('home.overspent') }}</span>
             @else
-                <span class="px-3 py-1 bg-white/10 text-white/50 text-xs font-bold rounded-full">{{ __('ui.assigned') }}</span>
+                <span class="px-3 py-1 bg-white/10 text-white/50 text-xs font-bold rounded-full">{{ __('home.assigned') }}</span>
             @endif
         </div>
         <div class="text-4xl font-extrabold tracking-tight {{ $readyToAssign < 0 ? 'text-red-300' : 'text-white' }}">
@@ -46,37 +46,37 @@
         <div class="mt-4 flex gap-3">
             <a href="{{ route('budget.index', ['year' => $year, 'month' => $month]) }}"
                class="flex-1 bg-white/20 hover:bg-white/30 text-white text-center py-2.5 rounded-xl text-sm font-semibold transition">
-                {{ __('ui.assign') }}
+                {{ __('home.assign') }}
             </a>
             <a href="{{ route('income.create') }}"
                class="flex-1 bg-white text-[#667eea] text-center py-2.5 rounded-xl text-sm font-bold transition hover:bg-white/90">
-                {{ __('ui.add_income') }}
+                {{ __('home.add_income') }}
             </a>
         </div>
     </div>
 
     {{-- Monthly Summary --}}
     <div class="bg-white/10 backdrop-blur-md rounded-3xl p-5 mb-4">
-        <h2 class="text-sm font-semibold text-white/70 mb-3">{{ __('ui.this_month') }}</h2>
+        <h2 class="text-sm font-semibold text-white/70 mb-3">{{ __('home.this_month') }}</h2>
         <div class="grid grid-cols-3 gap-3 text-center">
             <div>
                 <div class="text-lg font-bold text-lime-300">{{ number_format($monthIncome, 2, ',', '.') }} {{ $currency }}</div>
-                <div class="text-[10px] text-white/50 font-medium mt-0.5">{{ __('ui.income') }}</div>
+                <div class="text-[10px] text-white/50 font-medium mt-0.5">{{ __('home.income') }}</div>
             </div>
             <a href="{{ route('transactions.index', ['year' => $year, 'month' => $month]) }}" class="block">
                 <div class="text-lg font-bold text-red-300">{{ number_format($monthExpenses, 2, ',', '.') }} {{ $currency }}</div>
-                <div class="text-[10px] text-white/50 font-medium mt-0.5">{{ __('ui.expenses') }} →</div>
+                <div class="text-[10px] text-white/50 font-medium mt-0.5">{{ __('home.expenses') }} →</div>
             </a>
             <div>
                 <div class="text-lg font-bold">{{ number_format($monthIncome - $monthExpenses, 2, ',', '.') }} {{ $currency }}</div>
-                <div class="text-[10px] text-white/50 font-medium mt-0.5">{{ __('ui.balance') }}</div>
+                <div class="text-[10px] text-white/50 font-medium mt-0.5">{{ __('home.balance') }}</div>
             </div>
         </div>
     </div>
 
     {{-- Top Priorities --}}
     <div class="mb-6">
-        <h2 class="text-sm font-semibold text-white/70 mb-3 px-1">{{ __('ui.top_priorities') }}</h2>
+        <h2 class="text-sm font-semibold text-white/70 mb-3 px-1">{{ __('home.top_priorities') }}</h2>
         <div class="space-y-2">
             @foreach($categories->take(5) as $category)
                 <div class="bg-white rounded-2xl p-4 flex items-center justify-between">
@@ -88,7 +88,7 @@
                                 @if($category->assigned > 0)
                                     {{ number_format($category->spent, 2, ',', '.') }} / {{ number_format($category->assigned, 2, ',', '.') }} {{ $currency }}
                                 @else
-                                    {{ __('ui.not_assigned') }}
+                                    {{ __('home.not_assigned') }}
                                 @endif
                             </div>
                         </div>

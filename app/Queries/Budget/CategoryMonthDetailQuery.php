@@ -4,6 +4,8 @@ namespace App\Queries\Budget;
 
 use App\Models\Category;
 
+// Returns the assigned budget and total spent for a single category in a given month.
+// Used on the budget detail page (BudgetController@show).
 class CategoryMonthDetailQuery
 {
     public function __construct(

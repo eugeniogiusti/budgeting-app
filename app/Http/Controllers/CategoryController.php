@@ -36,7 +36,7 @@ class CategoryController extends Controller
 
         Category::create($data);
 
-        session()->flash('success', __('ui.toast_saved'));
+        session()->flash('success', __('notifications.toast_saved'));
 
         return redirect()->route('categories.index');
     }
@@ -52,7 +52,7 @@ class CategoryController extends Controller
     {
         $category->update(array_merge($request->validated(), ['translation_key' => null]));
 
-        session()->flash('success', __('ui.toast_saved'));
+        session()->flash('success', __('notifications.toast_saved'));
 
         return redirect()->route('categories.index');
     }
@@ -64,12 +64,12 @@ class CategoryController extends Controller
 
         if (! $deleted) {
             return redirect()->route('categories.index')
-                ->with('error', __('ui.category_has_data'));
+                ->with('error', __('categories.category_has_data'));
         }
 
-        session()->flash('success', __('ui.toast_deleted'));
+        session()->flash('success', __('notifications.toast_deleted'));
 
         return redirect()->route('categories.index')
-            ->with('success', __('ui.toast_deleted'));
+            ->with('success', __('notifications.toast_deleted'));
     }
 }

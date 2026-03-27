@@ -10,7 +10,7 @@
                 <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
             </svg>
         </a>
-        <span class="text-white font-bold text-lg">{{ __('ui.categories') }}</span>
+        <span class="text-white font-bold text-lg">{{ __('categories.categories') }}</span>
     </div>
 @endsection
 
@@ -50,7 +50,7 @@
                     @csrf
                     <button type="button"
                             class="w-8 h-8 flex items-center justify-center text-gray-300 hover:text-red-400 transition rounded-full hover:bg-red-50"
-                            onclick="nativeConfirm(this.closest('form'), '{{ __('ui.confirm_delete_category') }}')">
+                            onclick="nativeConfirm(this.closest('form'), '{{ __('categories.confirm_delete_category') }}')">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
                         </svg>
@@ -60,7 +60,7 @@
         @empty
             <div class="px-5 py-12 text-center text-gray-400">
                 <div class="text-4xl mb-3">📂</div>
-                <div class="font-medium">{{ __('ui.no_categories') }}</div>
+                <div class="font-medium">{{ __('categories.no_categories') }}</div>
             </div>
         @endforelse
     </div>

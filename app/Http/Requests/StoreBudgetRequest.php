@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+// Validates the monthly budget limit form (BudgetController@store / @update).
 class StoreBudgetRequest extends FormRequest
 {
     public function authorize(): bool

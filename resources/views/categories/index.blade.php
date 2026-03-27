@@ -4,11 +4,11 @@
 
 {{-- Header --}}
 <div class="mb-6 flex items-center justify-between">
-    <h1 class="text-2xl font-bold text-gray-800 dark:text-white/90">{{ __('ui.categories') }}</h1>
+    <h1 class="text-2xl font-bold text-gray-800 dark:text-white/90">{{ __('categories.categories') }}</h1>
     <a href="{{ route('categories.create') }}"
        class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-brand-500 hover:bg-brand-600 text-white text-sm font-semibold transition">
         <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" d="M12 5v14m-7-7h14"/></svg>
-        {{ __('ui.new_category') }}
+        {{ __('categories.new_category') }}
     </a>
 </div>
 
@@ -52,7 +52,7 @@
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
                 </a>
                 <form action="{{ route('categories.destroy', $category) }}" method="POST"
-                      onsubmit="return confirm('{{ __('ui.confirm_delete_category') }}')">
+                      onsubmit="return confirm('{{ __('categories.confirm_delete_category') }}')">
                     @csrf
                     <button type="submit"
                             class="w-8 h-8 inline-flex items-center justify-center rounded-lg text-gray-400 hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 transition">
@@ -65,7 +65,7 @@
     @empty
         <div class="px-6 py-16 text-center">
             <div class="text-4xl mb-3">📂</div>
-            <div class="text-gray-400 dark:text-gray-600 font-medium">{{ __('ui.no_categories') }}</div>
+            <div class="text-gray-400 dark:text-gray-600 font-medium">{{ __('categories.no_categories') }}</div>
         </div>
     @endforelse
 </div>

@@ -5,6 +5,10 @@ namespace App\Queries\Transactions;
 use App\Models\Transaction;
 use Carbon\Carbon;
 
+// Checks whether the given transaction pushed its category over the monthly budget limit.
+// Returns null if: the transaction has no category, no budget was set, or the limit was not exceeded.
+// Returns an array with category name, emoji and the over-budget amount (formatted) if exceeded.
+// Called after storing a new expense to flash a warning to the user.
 class BudgetExceededQuery
 {
     public function __construct(private Transaction $transaction) {}

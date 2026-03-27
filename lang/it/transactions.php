@@ -1,0 +1,27 @@
+<?php
+
+return [
+    'new_income' => 'Nuova Entrata',
+    'amount' => 'Importo',
+    'note' => 'Nota',
+    'note_placeholder' => 'Es. Stipendio, Bonus...',
+    'date' => 'Data',
+    'type' => 'Tipo',
+    'submit_income' => 'Aggiungi Entrata',
+    'new_expense' => 'Nuova Spesa',
+    'category' => 'Categoria',
+    'select_category' => 'Seleziona categoria',
+    'expense_note_placeholder' => 'Es. Supermercato, Carburante...',
+    'submit_expense' => 'Aggiungi Spesa',
+    'transactions' => 'Transazioni',
+    'confirm_delete' => 'Eliminare questa spesa?',
+    'confirm_delete_income' => 'Eliminare questa entrata?',
+    'unknown_category' => 'Senza categoria',
+    'edit_expense' => 'Modifica Spesa',
+    'edit_income' => 'Modifica Entrata',
+    'save_expense' => 'Salva',
+    'cancel' => 'Annulla',
+    'save' => 'Salva',
+    'no_transactions' => 'Nessuna transazione',
+    'filter_all' => 'Tutti',
+];

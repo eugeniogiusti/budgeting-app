@@ -10,7 +10,7 @@
                 <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
             </svg>
         </a>
-        <h1 class="text-2xl font-bold">{{ __('ui.new_category') }}</h1>
+        <h1 class="text-2xl font-bold">{{ __('categories.new_category') }}</h1>
     </div>
 
     <form action="{{ route('categories.store') }}" method="POST">
@@ -21,22 +21,22 @@
             {{-- Emoji + Name --}}
             <div class="flex gap-3">
                 <div class="w-20 flex-shrink-0">
-                    <label class="block text-xs font-semibold text-gray-500 mb-1.5">{{ __('ui.goal_emoji') }}</label>
+                    <label class="block text-xs font-semibold text-gray-500 mb-1.5">{{ __('goals.goal_emoji') }}</label>
                     <input type="text" name="emoji" value="{{ old('emoji') }}"
                            class="w-full border border-gray-200 rounded-xl px-3 py-3 text-center text-2xl focus:outline-none focus:ring-2 focus:ring-[#667eea]/30"
                            placeholder="🏠" maxlength="5" required>
                 </div>
                 <div class="flex-1">
-                    <label class="block text-xs font-semibold text-gray-500 mb-1.5">{{ __('ui.category_name') }}</label>
+                    <label class="block text-xs font-semibold text-gray-500 mb-1.5">{{ __('categories.category_name') }}</label>
                     <input type="text" name="name" value="{{ old('name') }}"
                            class="w-full border border-gray-200 rounded-xl px-4 py-3 text-gray-800 focus:outline-none focus:ring-2 focus:ring-[#667eea]/30"
-                           placeholder="{{ __('ui.category_name_placeholder') }}" required>
+                           placeholder="{{ __('categories.category_name_placeholder') }}" required>
                 </div>
             </div>
 
             {{-- Color presets --}}
             <div>
-                <label class="block text-xs font-semibold text-gray-500 mb-2">{{ __('ui.category_color') }}</label>
+                <label class="block text-xs font-semibold text-gray-500 mb-2">{{ __('categories.category_color') }}</label>
                 <input type="hidden" name="color" id="colorInput" value="{{ old('color', '#667eea') }}">
                 <div class="flex gap-3 flex-wrap">
                     @foreach(['#667eea','#4ecdc4','#f093fb','#f5a623','#43e97b','#fa709a','#4facfe','#f7971e','#a18cd1','#ff6b6b'] as $c)
@@ -52,7 +52,7 @@
 
         <button type="submit"
                 class="w-full bg-gradient-to-r from-[#667eea] to-[#4ecdc4] text-white font-bold py-4 rounded-2xl shadow-lg shadow-[#667eea]/30 text-base">
-            {{ __('ui.create_category') }}
+            {{ __('categories.create_category') }}
         </button>
     </form>
 

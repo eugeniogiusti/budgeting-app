@@ -48,4 +48,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (document.querySelector('#calendar')) {
         import('./components/calendar-init').then(module => module.calendarInit());
     }
+
+    // Stats charts (donut + trend bar)
+    if (document.querySelector('#donutChart') || document.querySelector('#trendChart')) {
+        import('./components/stats-charts').then(module => module.initStatsCharts());
+    }
 });

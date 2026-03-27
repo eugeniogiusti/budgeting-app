@@ -1,0 +1,27 @@
+<?php
+
+return [
+    'new_income' => 'New Income',
+    'amount' => 'Amount',
+    'note' => 'Note',
+    'note_placeholder' => 'E.g. Salary, Bonus...',
+    'date' => 'Date',
+    'type' => 'Type',
+    'submit_income' => 'Add Income',
+    'new_expense' => 'New Expense',
+    'category' => 'Category',
+    'select_category' => 'Select category',
+    'expense_note_placeholder' => 'E.g. Supermarket, Gas...',
+    'submit_expense' => 'Add Expense',
+    'transactions' => 'Transactions',
+    'confirm_delete' => 'Delete this expense?',
+    'confirm_delete_income' => 'Delete this income?',
+    'unknown_category' => 'No category',
+    'edit_expense' => 'Edit Expense',
+    'edit_income' => 'Edit Income',
+    'save_expense' => 'Save',
+    'cancel' => 'Cancel',
+    'save' => 'Save',
+    'no_transactions' => 'No transactions',
+    'filter_all' => 'All',
+];

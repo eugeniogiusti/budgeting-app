@@ -4,6 +4,8 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+// Validates the new expense form (TransactionController@store).
+// category_id must reference an existing category (non-goal).
 class StoreExpenseRequest extends FormRequest
 {
     public function authorize(): bool

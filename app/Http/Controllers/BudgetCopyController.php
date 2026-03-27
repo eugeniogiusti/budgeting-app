@@ -19,7 +19,7 @@ class BudgetCopyController extends Controller
 
         $this->budgetService->copyBudgetFromPreviousMonth($date->year, $date->month);
 
-        session()->flash('success', __('ui.toast_copied'));
+        session()->flash('success', __('notifications.toast_copied'));
 
         return redirect()->route('budget.index', ['year' => $date->year, 'month' => $date->month]);
     }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Concerns\ResolvesMonth;
 use App\Http\Requests\StoreExpenseRequest;
+use App\Http\Requests\UpdateTransactionRequest;
 use App\Models\Category;
 use App\Models\Transaction;
 use App\Queries\Transactions\BudgetExceededQuery;
@@ -11,7 +12,6 @@ use App\Queries\Transactions\MonthlyTransactionsQuery;
 use App\Services\BudgetService;
 use Carbon\Carbon;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 class TransactionController extends Controller
@@ -78,21 +78,9 @@ class TransactionController extends Controller
     }
 
     // Update a transaction; category_id is only applied for expenses, not for income.
-    public function update(Request $request, Transaction $transaction): RedirectResponse
+    public function update(UpdateTransactionRequest $request, Transaction $transaction): RedirectResponse
     {
-        $rules = [
-            'amount' => ['required', 'numeric', 'min:0.01'],
-            'note'   => ['nullable', 'string', 'max:255'],
-            'date'   => ['required', 'date'],
-        ];
-
-        if ($transaction->type === 'expense') {
-            $rules['category_id'] = ['required', 'exists:categories,id'];
-        } else {
-            $rules['category_id'] = ['nullable'];
-        }
-
-        $validated = $request->validate($rules);
+        $validated = $request->validated();
 
         if ($transaction->type === 'income') {
             unset($validated['category_id']);
@@ -100,7 +88,7 @@ class TransactionController extends Controller
 
         $transaction->update($validated);
 
-        session()->flash('success', __('ui.toast_saved'));
+        session()->flash('success', __('notifications.toast_saved'));
 
         $date = Carbon::parse($validated['date']);
 
@@ -115,7 +103,7 @@ class TransactionController extends Controller
 
         $transaction->delete();
 
-        session()->flash('success', __('ui.toast_deleted'));
+        session()->flash('success', __('notifications.toast_deleted'));
 
         return redirect()->route('transactions.index', ['year' => $year, 'month' => $month]);
     }

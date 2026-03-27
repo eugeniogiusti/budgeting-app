@@ -64,7 +64,7 @@ class BudgetController extends Controller
             $data['amount']
         );
 
-        session()->flash('success', __('ui.toast_saved'));
+        session()->flash('success', __('notifications.toast_saved'));
 
         return redirect()->route('budget.index', ['year' => $data['year'], 'month' => $data['month']]);
     }

@@ -4,6 +4,8 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+// Validates the create/update goal form (GoalController@store / @update).
+// target_date is optional but must be in the future if provided.
 class StoreGoalRequest extends FormRequest
 {
     public function authorize(): bool

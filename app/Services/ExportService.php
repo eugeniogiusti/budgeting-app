@@ -4,8 +4,13 @@ namespace App\Services;
 
 use App\Models\Transaction;
 
+// Handles CSV export of all transactions.
 class ExportService
 {
+    // Exports all transactions to a CSV file in storage/app/temp/ and returns the absolute file path.
+    // Columns: date, type, amount, category (or '-' for income), note.
+    // Column headers are translated using the active locale.
+    // The caller is responsible for streaming the file to the browser and deleting it afterwards.
     public function exportCsv(): string
     {
         $transactions = Transaction::with('category')
@@ -24,11 +29,11 @@ class ExportService
         $handle   = fopen($filePath, 'w');
 
         fputcsv($handle, [
-            __('ui.date'),
-            __('ui.type'),
-            __('ui.amount'),
-            __('ui.category'),
-            __('ui.note'),
+            __('transactions.date'),
+            __('transactions.type'),
+            __('transactions.amount'),
+            __('transactions.category'),
+            __('transactions.note'),
         ]);
 
         foreach ($transactions as $t) {

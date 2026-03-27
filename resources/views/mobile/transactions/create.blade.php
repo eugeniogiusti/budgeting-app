@@ -10,7 +10,7 @@
                 <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
             </svg>
         </a>
-        <h1 class="text-2xl font-bold">{{ __('ui.new_expense') }}</h1>
+        <h1 class="text-2xl font-bold">{{ __('transactions.new_expense') }}</h1>
     </div>
 
     {{-- Form --}}
@@ -19,7 +19,7 @@
             @csrf
 
             <div class="mb-5">
-                <label class="block text-gray-500 text-sm font-medium mb-1.5">{{ __('ui.amount') }}</label>
+                <label class="block text-gray-500 text-sm font-medium mb-1.5">{{ __('transactions.amount') }}</label>
                 <div class="relative">
                     <span class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-xl font-bold">{{ $currency }}</span>
                     <input type="number" name="amount" step="0.01" min="0.01" required
@@ -29,10 +29,10 @@
             </div>
 
             <div class="mb-5">
-                <label class="block text-gray-500 text-sm font-medium mb-1.5">{{ __('ui.category') }}</label>
+                <label class="block text-gray-500 text-sm font-medium mb-1.5">{{ __('transactions.category') }}</label>
                 <select name="category_id" required
                         class="w-full px-4 py-3.5 bg-gray-100 rounded-2xl text-gray-800 focus:outline-none focus:ring-2 focus:ring-[#667eea]/50 appearance-none">
-                    <option value="" disabled selected>{{ __('ui.select_category') }}</option>
+                    <option value="" disabled selected>{{ __('transactions.select_category') }}</option>
                     @foreach($categories as $category)
                         <option value="{{ $category->id }}">{{ $category->emoji }} {{ $category->name }}</option>
                     @endforeach
@@ -40,20 +40,20 @@
             </div>
 
             <div class="mb-5">
-                <label class="block text-gray-500 text-sm font-medium mb-1.5">{{ __('ui.note') }}</label>
-                <input type="text" name="note" placeholder="{{ __('ui.expense_note_placeholder') }}"
+                <label class="block text-gray-500 text-sm font-medium mb-1.5">{{ __('transactions.note') }}</label>
+                <input type="text" name="note" placeholder="{{ __('transactions.expense_note_placeholder') }}"
                        class="w-full px-4 py-3.5 bg-gray-100 rounded-2xl text-gray-800 placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-[#667eea]/50">
             </div>
 
             <div class="mb-8">
-                <label class="block text-gray-500 text-sm font-medium mb-1.5">{{ __('ui.date') }}</label>
+                <label class="block text-gray-500 text-sm font-medium mb-1.5">{{ __('transactions.date') }}</label>
                 <input type="date" name="date" value="{{ $today }}" required
                        class="w-full px-4 py-3.5 bg-gray-100 rounded-2xl text-gray-800 focus:outline-none focus:ring-2 focus:ring-[#667eea]/50">
             </div>
 
             <button type="submit"
                     class="w-full py-4 bg-gradient-to-r from-[#667eea] to-[#4ecdc4] text-white font-bold rounded-2xl text-lg transition hover:opacity-90">
-                {{ __('ui.submit_expense') }}
+                {{ __('transactions.submit_expense') }}
             </button>
         </form>
     </div>

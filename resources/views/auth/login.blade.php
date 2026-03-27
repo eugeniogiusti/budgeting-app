@@ -9,10 +9,10 @@
             <div class="mx-auto flex w-full max-w-md flex-1 flex-col justify-center">
                 <div class="mb-5 sm:mb-8">
                     <h1 class="text-title-sm sm:text-title-md mb-2 font-semibold text-gray-800 dark:text-white/90">
-                        {{ __('ui.sign_in') }}
+                        {{ __('auth.sign_in') }}
                     </h1>
                     <p class="text-sm text-gray-500 dark:text-gray-400">
-                        {{ __('ui.sign_in_subtitle') }}
+                        {{ __('auth.sign_in_subtitle') }}
                     </p>
                 </div>
 
@@ -54,23 +54,23 @@
                         <div class="flex items-center justify-between">
                             <label class="flex cursor-pointer items-center gap-2 text-sm text-gray-700 dark:text-gray-400">
                                 <input type="checkbox" name="remember" class="rounded border-gray-300 text-brand-500 focus:ring-brand-500">
-                                {{ __('ui.remember_me') }}
+                                {{ __('auth.remember_me') }}
                             </label>
                         </div>
 
                         <!-- Submit -->
                         <button type="submit"
                             class="flex w-full items-center justify-center rounded-lg bg-brand-500 px-4 py-3 text-sm font-medium text-white transition hover:bg-brand-600">
-                            {{ __('ui.sign_in') }}
+                            {{ __('auth.sign_in') }}
                         </button>
                     </div>
                 </form>
 
                 <div class="mt-5">
                     <p class="text-center text-sm text-gray-700 dark:text-gray-400">
-                        {{ __('ui.no_account') }}
+                        {{ __('auth.no_account') }}
                         <a href="{{ route('register') }}" class="text-brand-500 hover:text-brand-600 dark:text-brand-400">
-                            {{ __('ui.sign_up') }}
+                            {{ __('auth.sign_up') }}
                         </a>
                     </p>
                 </div>
@@ -84,7 +84,7 @@
                 <div class="flex max-w-xs flex-col items-center gap-4">
                     <img src="/images/logo/logo-icon.svg" alt="BudgetKit" width="64" height="64" />
                     <span class="text-3xl font-bold text-white tracking-tight">BudgetKit</span>
-                    <p class="text-center text-sm text-gray-400">{{ __('ui.app_tagline') }}</p>
+                    <p class="text-center text-sm text-gray-400">{{ __('auth.app_tagline') }}</p>
                 </div>
             </div>
         </div>
