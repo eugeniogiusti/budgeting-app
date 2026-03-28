@@ -5,23 +5,32 @@
 <h1 align="center">BudgetKit</h1>
 
 <p align="center">
-  <strong>Tieni il controllo delle tue finanze.</strong><br/>
-  Personal finance manager open source — built with Laravel & Tailwind CSS.
+  <strong>Take control of your finances.</strong><br/>
+  Open source personal finance manager — built with Laravel & Tailwind CSS.
 </p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Laravel-12-red?logo=laravel" alt="Laravel 12" />
   <img src="https://img.shields.io/badge/Tailwind_CSS-v4-38bdf8?logo=tailwindcss" alt="Tailwind CSS" />
-  <img src="https://img.shields.io/badge/license-MIT-green" alt="MIT License" />
+  <img src="https://img.shields.io/badge/status-beta-orange" alt="Beta" />
+  <img src="https://img.shields.io/badge/license-GPL--3.0-blue" alt="GPL-3.0 License" />
 </p>
+
+> **⚠️ Beta project** — core features are stable, but some sections are still under active development (see below).
 
 ---
 
-## Cos'è BudgetKit
+## Demo
 
-BudgetKit è un'applicazione web per la gestione delle finanze personali. Permette di tracciare entrate e uscite, impostare un budget mensile per categoria, monitorare obiettivi di risparmio e visualizzare statistiche di spesa — il tutto con un'interfaccia pulita, dark mode inclusa.
+[![BudgetKit Demo](https://img.youtube.com/vi/FNFq3y3eKG8/maxresdefault.jpg)](https://www.youtube.com/watch?v=FNFq3y3eKG8)
 
-Il layout si adatta automaticamente al dispositivo: **interfaccia desktop** con sidebar e tabelle, **interfaccia mobile** con gradient UI e navigazione bottom tab — senza app da installare.
+---
+
+## What is BudgetKit
+
+BudgetKit is a web application for personal finance management. It lets you track income and expenses, set a monthly budget per category, monitor savings goals and visualize spending statistics — all with a clean interface including dark mode.
+
+The layout automatically adapts to the device: **desktop interface** with sidebar and tables, **mobile interface** with gradient UI and bottom tab navigation — no app to install.
 
 ---
 
@@ -40,38 +49,49 @@ Il layout si adatta automaticamente al dispositivo: **interfaccia desktop** con 
 
 ---
 
-## Funzionalità
+## Features
 
-- **Dashboard** — panoramica immediata: saldo disponibile, totale assegnato, obiettivi attivi
-- **Transazioni** — registra entrate e uscite, filtra per tipo e mese
-- **Budget** — assegna un budget mensile per ogni categoria, copia il budget del mese precedente
-- **Obiettivi** — crea obiettivi di risparmio con importo target e progresso visivo
-- **Statistiche** — grafico donut per categoria + trend mensile entrate/uscite (6 mesi)
-- **Categorie** — gestisci categorie personalizzate con emoji e colore
-- **Impostazioni** — lingua (IT/EN) e valuta (EUR, USD, GBP, CHF)
-- **Export CSV** — esporta tutte le transazioni
-- **Auth** — registrazione e login, profilo con modifica nome/email/password
-- **Dark mode** — supporto nativo
-- **Multi-lingua** — italiano e inglese
-- **Responsive automatico** — layout desktop con sidebar su PC, layout mobile ottimizzato su smartphone (rilevamento User-Agent)
+- **Dashboard** — instant overview: available balance, total assigned, active goals
+- **Transactions** — record income and expenses, filter by type and month
+- **Budget** — assign a monthly budget per category, copy budget from previous month
+- **Goals** — create savings goals with target amount and visual progress
+- **Statistics** — donut chart by category + monthly income/expenses trend (6 months)
+- **Categories** — manage custom categories with emoji and color
+- **Settings** — language (IT/EN) and currency (EUR, USD, GBP, CHF)
+- **Export/Import CSV** — export and import all transactions
+- **Auth** — registration and login, profile with name/email/password editing
+- **Dark mode** — native support
+- **Multi-language** — Italian and English
+- **Automatic responsive** — desktop layout with sidebar on PC, optimized mobile layout on smartphone (User-Agent detection)
 
 ---
 
-## Stack tecnologico
+## Project Status
 
-| Layer | Tecnologia |
+| Area | Status |
 |---|---|
-| Backend | Laravel 12 |
-| Frontend | Tailwind CSS v4, Alpine.js |
-| Charts | ApexCharts |
-| Template base | TailAdmin Laravel |
-| Database | SQLite / MySQL / PostgreSQL |
+| Dashboard, Budget, Transactions, Goals, Statistics | ✅ Stable |
+| Settings, Profile, Export/Import CSV | ✅ Stable |
+| Authentication (login/register) | 🚧 In development |
+| Desktop frontend (layout, UI components) | 🚧 In development |
 
 ---
 
-## Installazione
+## Tech Stack
 
-### Requisiti
+| Layer | Technology |
+|---|---|
+| Backend | Laravel 12 (PHP 8.2+) |
+| Frontend | Blade, Tailwind CSS v4, Alpine.js |
+| Charts | ApexCharts |
+| Database | SQLite (default) / MySQL / PostgreSQL |
+| Base template | TailAdmin Laravel |
+
+---
+
+## Installation
+
+### Requirements
 - PHP 8.2+
 - Composer
 - Node.js 18+
@@ -79,103 +99,87 @@ Il layout si adatta automaticamente al dispositivo: **interfaccia desktop** con 
 ### Setup
 
 ```bash
-# 1. Clona il repository
-git clone https://github.com/tuo-username/budgetkit.git
+# 1. Clone the repository
+git clone https://github.com/your-username/budgetkit.git
 cd budgetkit
 
-# 2. Installa dipendenze PHP
+# 2. Install PHP dependencies
 composer install
 
-# 3. Installa dipendenze JS
+# 3. Install JS dependencies
 npm install
 
-# 4. Configura l'ambiente
+# 4. Configure the environment
 cp .env.example .env
 php artisan key:generate
 
-# 5. Configura il database in .env, poi esegui le migration
+# 5. Configure the database in .env, then run migrations
 php artisan migrate
 
 # 6. Build assets
 npm run build
 
-# 7. Avvia il server
-php artisan serve
-```
-
-Apri `http://localhost:8000`, registra un account e inizia a usare BudgetKit.
-
-### Sviluppo con hot reload
-
-```bash
-npm run dev
+# 7. Start the server
 php artisan serve
 ```
 
 ---
 
-## Struttura del progetto
+## Project Structure
 
 ```
 app/
-├── Http/Controllers/       # Controller per ogni modulo
+├── Http/Controllers/       # Controllers for each module
 │   └── Auth/               # Login, Register
 ├── Http/Requests/          # Form request validation
 ├── Models/                 # Eloquent models
-├── Services/               # BudgetService — logica di business
+├── Queries/                # Query objects for data reading (Budget, Stats, Transactions...)
+├── Services/               # Business logic (BudgetService, ImportService...)
 └── Helpers/                # MenuHelper — sidebar navigation
 
 lang/
-├── it/ui.php               # Traduzioni italiano
-└── en/ui.php               # Traduzioni inglese
+├── it/                     # Italian translations (auth, budget, categories, goals...)
+└── en/                     # English translations
 
-resources/views/
-├── layouts/                # app.blade.php (desktop), mobile.blade.php (mobile), sidebar, header
-├── mobile/                 # Viste ottimizzate per smartphone (gradient UI, bottom nav)
-├── home/                   # Dashboard
-├── transactions/           # Lista + form transazioni
-├── budget/                 # Budget mensile
-├── goals/                  # Obiettivi
-├── stats/                  # Statistiche
-├── categories/             # Categorie
-├── settings/               # Impostazioni
-├── profile/                # Profilo utente
-└── auth/                   # Login + Register
+resources/
+├── js/components/          # JavaScript components (charts, calendar...)
+└── views/
+    ├── layouts/            # app.blade.php (desktop), mobile.blade.php (mobile)
+    ├── mobile/             # Smartphone-optimized views
+    ├── components/         # Reusable Blade components
+    ├── transactions/       # Transaction list + forms
+    ├── budget/             # Monthly budget
+    ├── goals/              # Goals
+    ├── stats/              # Statistics
+    ├── categories/         # Categories
+    ├── settings/           # Settings
+    ├── profile/            # User profile
+    └── auth/               # Login + Register
 ```
 
 ---
 
-## Configurazione
+## Configuration
 
-Le impostazioni principali si trovano in `config/budget.php`:
+Main settings are in `config/budget.php`:
 
 ```php
-'locales'          => ['it', 'en'],
+'locales'          => ['it' => 'Italiano', 'en' => 'English'],
 'default_locale'   => 'it',
-'currencies'       => ['EUR', 'USD', 'GBP', 'CHF'],
+'currencies'       => ['EUR' => 'EUR (€)', 'USD' => 'USD ($)', ...],
 'default_currency' => 'EUR',
 ```
 
 ---
 
-## Contribuire
+## License
 
-Pull request benvenute. Per cambiamenti importanti, apri prima una issue per discutere cosa vorresti modificare.
+Distributed under the **GNU General Public License v3.0**. See [`LICENSE`](LICENSE) for details.
 
-1. Fork del repository
-2. Crea un branch (`git checkout -b feature/nuova-funzionalita`)
-3. Commit delle modifiche (`git commit -m 'Add: nuova funzionalita'`)
-4. Push (`git push origin feature/nuova-funzionalita`)
-5. Apri una Pull Request
-
----
-
-## Licenza
-
-Distribuito sotto licenza **MIT**. Vedi [`LICENSE`](LICENSE) per i dettagli.
+In short: you are free to use, modify and distribute this software, but derivative works must be released under the same GPL-3.0 license.
 
 ---
 
 <p align="center">
-  Fatto con ❤️ usando <a href="https://laravel.com">Laravel</a> e <a href="https://tailwindcss.com">Tailwind CSS</a>
+  Made with ❤️ using <a href="https://laravel.com">Laravel</a> and <a href="https://tailwindcss.com">Tailwind CSS</a>
 </p>
