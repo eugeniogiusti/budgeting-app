@@ -67,7 +67,7 @@
                         {{ __('transactions.date') }} <span class="text-red-500">*</span>
                     </label>
                     <input type="date" name="date"
-                           value="{{ old('date', $transaction->date) }}" required
+                           value="{{ old('date', $transaction->date->format('Y-m-d')) }}" required
                            class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-800 dark:text-white/90 focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-500">
                     @error('date')<p class="mt-1 text-xs text-red-500">{{ $message }}</p>@enderror
                 </div>

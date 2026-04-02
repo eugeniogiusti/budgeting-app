@@ -55,7 +55,7 @@
 
             <div class="mb-8">
                 <label class="block text-gray-500 text-sm font-medium mb-1.5">{{ __('transactions.date') }}</label>
-                <input type="date" name="date" value="{{ $transaction->date }}" required
+                <input type="date" name="date" value="{{ $transaction->date->format('Y-m-d') }}" required
                        class="w-full px-4 py-3.5 bg-gray-100 rounded-2xl text-gray-800 focus:outline-none focus:ring-2 focus:ring-[#667eea]/50">
             </div>
 
