@@ -5,7 +5,13 @@
 
     {{-- Header --}}
     <div class="pt-4 pb-4">
-        <h1 class="text-2xl font-bold">{{ __('nav.nav_budget') }}</h1>
+        <div class="flex items-center gap-2">
+            <h1 class="text-2xl font-bold">{{ __('nav.nav_budget') }}</h1>
+            <a href="{{ route('budget.guide', ['year' => $year, 'month' => $month]) }}"
+               class="w-7 h-7 flex items-center justify-center rounded-full bg-white/20 hover:bg-white/30 transition">
+                <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            </a>
+        </div>
         <div class="flex items-center gap-2 mt-1">
             <a href="{{ $prevUrl }}" class="w-7 h-7 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
@@ -65,12 +71,6 @@
                                     {{ __('budget.spent') }}: {{ number_format($category->spent, 2, ',', '.') }} {{ $currency }}
                                 @else
                                     {{ __('budget.no_expenses') }}
-                                @endif
-                                @if($category->rollover != 0)
-                                    &middot;
-                                    <span class="{{ $category->rollover > 0 ? 'text-lime-500' : 'text-red-400' }}">
-                                        {{ $category->rollover > 0 ? '+' : '' }}{{ number_format($category->rollover, 2, ',', '.') }} {{ __('budget.rollover') }}
-                                    </span>
                                 @endif
                             </div>
                         </div>

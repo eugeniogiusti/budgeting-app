@@ -22,6 +22,11 @@
     </div>
 
     <div class="flex gap-3">
+        <a href="{{ route('budget.guide', ['year' => $year, 'month' => $month]) }}"
+           class="inline-flex items-center justify-center w-9 h-9 rounded-lg border border-gray-300 dark:border-gray-700 text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800 transition"
+           title="{{ __('budget.guide_title') }}">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        </a>
         <form action="{{ route('budget.copy', ['year' => $year, 'month' => $month]) }}" method="POST">
             @csrf
             <input type="hidden" name="year" value="{{ $year }}">
@@ -76,11 +81,6 @@
                             <span class="text-xl">{{ $category->emoji }}</span>
                             <div>
                                 <div class="font-medium text-gray-800 dark:text-white/90">{{ $category->name }}</div>
-                                @if($category->rollover != 0)
-                                    <div class="text-xs {{ $category->rollover > 0 ? 'text-green-500' : 'text-red-400' }}">
-                                        {{ $category->rollover > 0 ? '+' : '' }}{{ number_format($category->rollover, 2, ',', '.') }} {{ __('budget.rollover') }}
-                                    </div>
-                                @endif
                             </div>
                         </div>
                     </td>

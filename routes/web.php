@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BudgetController;
 use App\Http\Controllers\BudgetCopyController;
+use App\Http\Controllers\BudgetGuideController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ExportController;
 use App\Http\Controllers\GoalController;
@@ -32,6 +33,7 @@ Route::middleware('auth')->group(function () {
 
     // Budget
     Route::get('/budget', [BudgetController::class, 'index'])->name('budget.index');
+    Route::get('/budget/guide', BudgetGuideController::class)->name('budget.guide');
     Route::get('/budget/{category}/edit', [BudgetController::class, 'edit'])->name('budget.edit');
     Route::post('/budget/{category}/update', [BudgetController::class, 'update'])->name('budget.update');
     Route::post('/budget/copy', [BudgetCopyController::class, 'store'])->name('budget.copy');
