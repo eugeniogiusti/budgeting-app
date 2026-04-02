@@ -46,11 +46,11 @@
                         <path stroke-linecap="round" stroke-linejoin="round" d="M15.232 5.232l3.536 3.536M9 13l6.586-6.586a2 2 0 012.828 0l.172.172a2 2 0 010 2.828L12 16H9v-3z"/>
                     </svg>
                 </a>
-                <form action="{{ route('categories.destroy', $category) }}" method="POST">
+                <form action="{{ route('categories.destroy', $category) }}" method="POST"
+                      x-data x-on:submit.prevent="if(confirm('{{ __('categories.confirm_delete_category') }}')) $el.submit()">
                     @csrf
-                    <button type="button"
-                            class="w-8 h-8 flex items-center justify-center text-gray-300 hover:text-red-400 transition rounded-full hover:bg-red-50"
-                            onclick="nativeConfirm(this.closest('form'), '{{ __('categories.confirm_delete_category') }}')">
+                    <button type="submit"
+                            class="w-8 h-8 flex items-center justify-center text-gray-300 hover:text-red-400 transition rounded-full hover:bg-red-50">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
                         </svg>

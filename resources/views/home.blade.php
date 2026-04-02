@@ -79,7 +79,6 @@
                 <svg class="w-5 h-5 text-blue-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 6l9-4 9 4v6c0 5.25-4.05 9.74-9 11-4.95-1.26-9-5.75-9-11V6z"/></svg>
             </span>
         </div>
-        @php $balance = $monthIncome - $monthExpenses; @endphp
         <div class="text-2xl font-bold {{ $balance >= 0 ? 'text-gray-800 dark:text-white/90' : 'text-red-500' }}">
             {{ number_format($balance, 2, ',', '.') }} {{ $currency }}
         </div>
@@ -148,11 +147,10 @@
                         </td>
                         <td class="px-6 py-4">
                             @if($category->assigned > 0)
-                                @php $pct = min(100, round(($category->spent / $category->assigned) * 100)); @endphp
                                 <div class="flex items-center gap-2">
                                     <div class="flex-1 h-1.5 bg-gray-100 dark:bg-gray-800 rounded-full overflow-hidden">
-                                        <div class="h-full rounded-full {{ $pct >= 100 ? 'bg-red-500' : ($pct >= 80 ? 'bg-yellow-500' : 'bg-green-500') }}"
-                                             style="width: {{ $pct }}%"></div>
+                                        <div class="h-full rounded-full {{ $category->bar_color }}"
+                                             style="width: {{ $category->pct }}%"></div>
                                     </div>
                                     <span class="text-xs text-gray-400 w-8 text-right">{{ $pct }}%</span>
                                 </div>

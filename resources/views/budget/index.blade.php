@@ -47,7 +47,7 @@
     </div>
 @endif
 
-{{-- Da assegnare --}}
+{{-- To assign --}}
 <div class="mb-6 rounded-2xl border border-gray-200 bg-white dark:border-gray-800 dark:bg-white/[0.03] px-6 py-4 flex items-center justify-between">
     <span class="text-sm font-medium text-gray-500 dark:text-gray-400">{{ __('home.ready_to_assign') }}</span>
     <span class="text-2xl font-extrabold {{ $readyToAssign < 0 ? 'text-red-500' : 'text-green-500' }}">
@@ -55,7 +55,7 @@
     </span>
 </div>
 
-{{-- Tabella categorie --}}
+{{-- Table --}}
 <div class="rounded-2xl border border-gray-200 bg-white dark:border-gray-800 dark:bg-white/[0.03] overflow-hidden">
     <table class="w-full text-sm">
         <thead>
@@ -70,11 +70,6 @@
         </thead>
         <tbody class="divide-y divide-gray-100 dark:divide-gray-800">
             @forelse($categories as $category)
-                @php
-                    $totalBudget = $category->assigned + $category->rollover;
-                    $pct = $totalBudget > 0 ? min(100, round($category->spent / $totalBudget * 100)) : 0;
-                    $barColor = $category->available < 0 ? 'bg-red-500' : ($pct >= 80 ? 'bg-yellow-500' : 'bg-green-500');
-                @endphp
                 <tr class="hover:bg-gray-50 dark:hover:bg-white/[0.02] transition">
                     <td class="px-6 py-4">
                         <div class="flex items-center gap-3">
@@ -97,17 +92,17 @@
                     </td>
                     <td class="px-6 py-4 text-right">
                         <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold
-                            {{ $category->available < 0 ? 'bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400' : ($totalBudget > 0 ? 'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400' : 'bg-gray-100 text-gray-500 dark:bg-gray-800 dark:text-gray-400') }}">
+                            {{ $category->available < 0 ? 'bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400' : ($category->total_budget > 0 ? 'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400' : 'bg-gray-100 text-gray-500 dark:bg-gray-800 dark:text-gray-400') }}">
                             {{ number_format($category->available, 2, ',', '.') }} {{ $currency }}
                         </span>
                     </td>
                     <td class="px-6 py-4">
-                        @if($totalBudget > 0)
+                        @if($category->total_budget > 0)
                             <div class="flex items-center gap-2">
                                 <div class="flex-1 h-1.5 bg-gray-100 dark:bg-gray-800 rounded-full overflow-hidden">
-                                    <div class="h-full rounded-full {{ $barColor }}" style="width: {{ $pct }}%"></div>
+                                    <div class="h-full rounded-full {{ $category->bar_color }}" style="width: {{ $category->pct }}%"></div>
                                 </div>
-                                <span class="text-xs text-gray-400 w-8 text-right">{{ $pct }}%</span>
+                                <span class="text-xs text-gray-400 w-8 text-right">{{ $category->pct }}%</span>
                             </div>
                         @else
                             <span class="text-xs text-gray-400">{{ __('home.not_assigned') }}</span>

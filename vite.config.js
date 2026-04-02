@@ -10,4 +10,9 @@ export default defineConfig({
         }),
         tailwindcss(),
     ],
+    build: {
+        // Raise the warning threshold — large chunks (ApexCharts, FullCalendar) are
+        // lazy-loaded via dynamic import() and never block the initial page load.
+        chunkSizeWarningLimit: 600,
+    },
 });

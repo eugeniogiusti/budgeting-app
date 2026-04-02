@@ -24,6 +24,7 @@ class HomeController extends Controller
             'categories'     => (new CategoriesWithMonthDataQuery($date->year, $date->month))->handle(),
             'monthIncome'    => $summary['income'],
             'monthExpenses'  => $summary['expenses'],
+            'balance'        => $summary['income'] - $summary['expenses'],
             'monthName'      => $date->translatedFormat('F Y'),
             'year'           => $date->year,
             'month'          => $date->month,

@@ -8,7 +8,7 @@
 
 <div class="max-w-2xl">
 
-    {{-- Da assegnare --}}
+    {{-- To assign --}}
     <div class="mb-6 rounded-2xl border border-gray-200 bg-white dark:border-gray-800 dark:bg-white/[0.03] px-6 py-4 flex items-center justify-between">
         <span class="text-sm font-medium text-gray-500 dark:text-gray-400">{{ __('home.ready_to_assign') }}</span>
         <span class="text-2xl font-extrabold {{ $readyToAssign < 0 ? 'text-red-500' : 'text-green-500' }}">
@@ -23,7 +23,6 @@
             <div class="text-sm text-gray-500 dark:text-gray-400 mt-1">{{ __('budget.spent') }}</div>
         </div>
         <div class="rounded-2xl border border-gray-200 bg-white dark:border-gray-800 dark:bg-white/[0.03] p-5 text-center">
-            @php $available = $assigned - $spent; @endphp
             <div class="text-2xl font-bold {{ $available < 0 ? 'text-red-500' : 'text-green-500' }}">
                 {{ number_format($available, 2, ',', '.') }} {{ $currency }}
             </div>

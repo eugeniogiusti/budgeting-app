@@ -11,6 +11,11 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* Dark body background applied via CSS so it works before Alpine initialises. */
+html.dark body {
+    background-color: #111827; /* gray-900 */
+}
+
 @theme {
   --font-*: initial;
   --font-outfit: Outfit, sans-serif;

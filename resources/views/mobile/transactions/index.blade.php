@@ -85,14 +85,13 @@
                         {{ $transaction->type === 'income' ? '+' : '-' }}{{ number_format($transaction->amount, 2, ',', '.') }} {{ $currency }}
                     </div>
                 </a>
-                <form action="{{ route('transactions.destroy', $transaction) }}" method="POST">
+                <form action="{{ route('transactions.destroy', $transaction) }}" method="POST"
+                      x-data x-on:submit.prevent="if(confirm('{{ $transaction->type === 'income' ? __('transactions.confirm_delete_income') : __('transactions.confirm_delete') }}')) $el.submit()">
                     @csrf
                     <input type="hidden" name="year" value="{{ $year }}">
                     <input type="hidden" name="month" value="{{ $month }}">
-                    @php $deleteMsg = $transaction->type === 'income' ? __('transactions.confirm_delete_income') : __('transactions.confirm_delete'); @endphp
-                    <button type="button"
-                            class="w-8 h-8 flex items-center justify-center text-gray-300 active:text-red-400 transition rounded-full"
-                            onclick="nativeConfirm(this.closest('form'), '{{ $deleteMsg }}')">
+                    <button type="submit"
+                            class="w-8 h-8 flex items-center justify-center text-gray-300 active:text-red-400 transition rounded-full">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
                         </svg>

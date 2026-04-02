@@ -1,5 +1,6 @@
 // Initializes the donut chart (spending by category) and the bar chart (6-month trend).
 // Data is passed via data-* attributes on #donutChart and #trendChart elements.
+import ApexCharts from 'apexcharts';
 
 export const initStatsCharts = () => {
     const isDark    = document.documentElement.classList.contains('dark');

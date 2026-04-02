@@ -33,14 +33,15 @@
                 </div>
 
                 {{-- Colore --}}
-                <div class="mb-8">
+                <div class="mb-8" x-data="{ selected: '{{ old('color', $category->color ?? '#667eea') }}' }">
                     <label class="block text-sm font-medium text-gray-700 dark:text-gray-400 mb-2">{{ __('categories.category_color') }}</label>
-                    <input type="hidden" name="color" id="colorInput" value="{{ old('color', $category->color ?? '#667eea') }}">
+                    <input type="hidden" name="color" x-bind:value="selected">
                     <div class="flex gap-3 flex-wrap">
-                        @foreach(['#667eea','#4ecdc4','#f093fb','#f5a623','#43e97b','#fa709a','#4facfe','#f7971e','#a18cd1','#ff6b6b'] as $c)
+                        @foreach($categoryColors as $c)
                             <button type="button"
-                                    onclick="document.getElementById('colorInput').value='{{ $c }}'; document.querySelectorAll('.color-dot').forEach(el => el.classList.remove('ring-2','ring-offset-2','ring-gray-400')); this.classList.add('ring-2','ring-offset-2','ring-gray-400')"
-                                    class="color-dot w-8 h-8 rounded-full transition {{ old('color', $category->color ?? '#667eea') === $c ? 'ring-2 ring-offset-2 ring-gray-400' : '' }}"
+                                    x-on:click="selected = '{{ $c }}'"
+                                    class="w-8 h-8 rounded-full transition"
+                                    :class="selected === '{{ $c }}' ? 'ring-2 ring-offset-2 ring-gray-400' : ''"
                                     style="background-color: {{ $c }}"></button>
                         @endforeach
                     </div>

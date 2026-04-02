@@ -24,7 +24,9 @@ class CategoryController extends Controller
     // Show the form to create a new category.
     public function create(): View
     {
-        return $this->mobileView('categories.create');
+        return $this->mobileView('categories.create', [
+            'categoryColors' => config('budget.category_colors'),
+        ]);
     }
 
     // Persist a new category, appending it at the end of the sort order.
@@ -44,7 +46,10 @@ class CategoryController extends Controller
     // Show the edit form for an existing category.
     public function edit(Category $category): View
     {
-        return $this->mobileView('categories.edit', compact('category'));
+        return $this->mobileView('categories.edit', [
+            'category'       => $category,
+            'categoryColors' => config('budget.category_colors'),
+        ]);
     }
 
     // Update a category's data and clear its translation key since it's now user-defined.

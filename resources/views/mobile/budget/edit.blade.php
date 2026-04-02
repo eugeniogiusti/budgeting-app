@@ -32,7 +32,6 @@
                 <div class="text-gray-400 text-xs mt-0.5">{{ __('budget.spent') }}</div>
             </div>
             <div class="bg-gray-50 rounded-2xl p-3 text-center">
-                @php $available = $assigned - $spent; @endphp
                 <div class="font-bold text-lg {{ $available < 0 ? 'text-red-500' : 'text-lime-600' }}">
                     {{ number_format($available, 2, ',', '.') }} {{ $currency }}
                 </div>

@@ -53,11 +53,6 @@
     {{-- Category list --}}
     <div class="space-y-2 mb-6">
         @foreach($categories as $category)
-            @php
-                $totalBudget = $category->assigned + $category->rollover;
-                $pct = $totalBudget > 0 ? min(100, round($category->spent / $totalBudget * 100)) : 0;
-                $barColor = $category->available < 0 ? 'bg-red-400' : ($pct >= 80 ? 'bg-amber-400' : 'bg-lime-400');
-            @endphp
             <a href="{{ route('budget.edit', ['category' => $category, 'year' => $year, 'month' => $month]) }}"
                class="bg-white rounded-2xl p-4 block active:scale-[0.98] transition-transform">
                 <div class="flex items-center justify-between mb-2">
@@ -81,7 +76,7 @@
                         </div>
                     </div>
                     <div class="text-right">
-                        <div class="font-bold text-sm {{ $category->available < 0 ? 'text-red-500' : ($totalBudget > 0 ? 'text-lime-600' : 'text-gray-300') }}">
+                        <div class="font-bold text-sm {{ $category->available < 0 ? 'text-red-500' : ($category->total_budget > 0 ? 'text-lime-600' : 'text-gray-300') }}">
                             {{ number_format($category->available, 2, ',', '.') }} {{ $currency }}
                         </div>
                         <div class="text-[10px] text-gray-400">
@@ -93,9 +88,9 @@
                         </div>
                     </div>
                 </div>
-                @if($totalBudget > 0)
+                @if($category->total_budget > 0)
                     <div class="w-full bg-gray-100 rounded-full h-1.5">
-                        <div class="{{ $barColor }} h-1.5 rounded-full transition-all duration-300" style="width: {{ $pct }}%"></div>
+                        <div class="{{ $category->bar_color_mobile }} h-1.5 rounded-full transition-all duration-300" style="width: {{ $category->pct }}%"></div>
                     </div>
                 @endif
             </a>

@@ -52,10 +52,19 @@ class CategoriesWithMonthDataQuery
 
                 $rollover = $prevAssigned - $prevSpent;
 
-                $category->assigned  = $assigned;
-                $category->spent     = $spent;
-                $category->rollover  = $rollover;
-                $category->available = $assigned + $rollover - $spent;
+                $available   = $assigned + $rollover - $spent;
+                $totalBudget = $assigned + $rollover;
+                $pct         = $totalBudget > 0 ? min(100, round($spent / $totalBudget * 100)) : 0;
+
+                $category->assigned         = $assigned;
+                $category->spent            = $spent;
+                $category->rollover         = $rollover;
+                $category->available        = $available;
+                $category->total_budget     = $totalBudget;
+                $category->pct              = $pct;
+                // bar_color variants for desktop (500) and mobile (400/amber/lime) Tailwind classes
+                $category->bar_color        = $available < 0 ? 'bg-red-500' : ($pct >= 80 ? 'bg-yellow-500' : 'bg-green-500');
+                $category->bar_color_mobile = $available < 0 ? 'bg-red-400' : ($pct >= 80 ? 'bg-amber-400' : 'bg-lime-400');
 
                 return $category;
             });

@@ -66,14 +66,7 @@
 
     @stack('scripts')
 
-    <script>
-    // Drop-in replacement for NativePHP nativeConfirm — uses browser confirm on web
-    function nativeConfirm(form, message) {
-        if (confirm(message)) {
-            form.submit();
-        }
-    }
-    </script>
+
 
 </body>
 </html>

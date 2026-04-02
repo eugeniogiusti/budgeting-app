@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Helpers\MenuHelper;
 use App\Models\Setting;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
@@ -24,6 +25,13 @@ class AppServiceProvider extends ServiceProvider
         View::share('currency', match ($code) {
             'USD'   => '$',
             default => '€',
+        });
+
+        // Provide sidebar menu data via View Composer so the sidebar partial
+        // doesn't need @php blocks to call MenuHelper directly.
+        View::composer('layouts.sidebar', function ($view) {
+            $view->with('menuGroups', MenuHelper::getMenuGroups())
+                 ->with('currentPath', request()->path());
         });
     }
 }
