@@ -31,7 +31,8 @@ class AppServiceProvider extends ServiceProvider
         // doesn't need @php blocks to call MenuHelper directly.
         View::composer('layouts.sidebar', function ($view) {
             $view->with('menuGroups', MenuHelper::getMenuGroups())
-                 ->with('currentPath', request()->path());
+                 ->with('currentPath', request()->path())
+                 ->with('getIconSvg', fn(string $icon) => MenuHelper::getIconSvg($icon));
         });
     }
 }

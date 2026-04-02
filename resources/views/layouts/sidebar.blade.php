@@ -105,7 +105,7 @@
                                             <!-- Icon -->
                                             <span :class="isSubmenuOpen({{ $groupIndex }}, {{ $itemIndex }}) ?
                                                     'menu-item-icon-active' : 'menu-item-icon-inactive'">
-                                                {!! MenuHelper::getIconSvg($item['icon']) !!}
+                                                {!! $getIconSvg($item['icon']) !!}
                                             </span>
 
                                             <!-- Text -->
@@ -183,7 +183,7 @@
                                             <span
                                                 :class="isActive('{{ $item['path'] }}') ? 'menu-item-icon-active' :
                                                     'menu-item-icon-inactive'">
-                                                {!! MenuHelper::getIconSvg($item['icon']) !!}
+                                                {!! $getIconSvg($item['icon']) !!}
                                             </span>
 
                                             <!-- Text -->

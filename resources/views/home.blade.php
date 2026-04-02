@@ -152,7 +152,7 @@
                                         <div class="h-full rounded-full {{ $category->bar_color }}"
                                              style="width: {{ $category->pct }}%"></div>
                                     </div>
-                                    <span class="text-xs text-gray-400 w-8 text-right">{{ $pct }}%</span>
+                                    <span class="text-xs text-gray-400 w-8 text-right">{{ $category->pct }}%</span>
                                 </div>
                             @else
                                 <span class="text-xs text-gray-400">{{ __('home.not_assigned') }}</span>
