@@ -16,7 +16,7 @@
   <img src="https://img.shields.io/badge/license-GPL--3.0-blue" alt="GPL-3.0 License" />
 </p>
 
-> **⚠️ Beta project** — core features are stable, but some sections are still under active development (see below).
+> **⚠️ Beta project** — core features are stable, but some sections are still under active development.
 
 ---
 
@@ -63,18 +63,6 @@ The layout automatically adapts to the device: **desktop interface** with sideba
 - **Dark mode** — native support
 - **Multi-language** — Italian and English
 - **Automatic responsive** — desktop layout with sidebar on PC, optimized mobile layout on smartphone (User-Agent detection)
-
----
-
-## Project Status
-
-| Area | Status |
-|---|---|
-| Dashboard, Budget, Transactions, Goals, Statistics | ✅ Stable |
-| Settings, Profile, Export/Import CSV | ✅ Stable |
-| Authentication (login/register) | 🚧 In development |
-| Desktop frontend (layout, UI components) | 🚧 In development |
-
 ---
 
 ## Tech Stack
@@ -122,54 +110,6 @@ npm run build
 # 7. Start the server
 php artisan serve
 ```
-
----
-
-## Project Structure
-
-```
-app/
-├── Http/Controllers/       # Controllers for each module
-│   └── Auth/               # Login, Register
-├── Http/Requests/          # Form request validation
-├── Models/                 # Eloquent models
-├── Queries/                # Query objects for data reading (Budget, Stats, Transactions...)
-├── Services/               # Business logic (BudgetService, ImportService...)
-└── Helpers/                # MenuHelper — sidebar navigation
-
-lang/
-├── it/                     # Italian translations (auth, budget, categories, goals...)
-└── en/                     # English translations
-
-resources/
-├── js/components/          # JavaScript components (charts, calendar...)
-└── views/
-    ├── layouts/            # app.blade.php (desktop), mobile.blade.php (mobile)
-    ├── mobile/             # Smartphone-optimized views
-    ├── components/         # Reusable Blade components
-    ├── transactions/       # Transaction list + forms
-    ├── budget/             # Monthly budget
-    ├── goals/              # Goals
-    ├── stats/              # Statistics
-    ├── categories/         # Categories
-    ├── settings/           # Settings
-    ├── profile/            # User profile
-    └── auth/               # Login + Register
-```
-
----
-
-## Configuration
-
-Main settings are in `config/budget.php`:
-
-```php
-'locales'          => ['it' => 'Italiano', 'en' => 'English'],
-'default_locale'   => 'it',
-'currencies'       => ['EUR' => 'EUR (€)', 'USD' => 'USD ($)', ...],
-'default_currency' => 'EUR',
-```
-
 ---
 
 ## License
