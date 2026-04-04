@@ -92,8 +92,8 @@ The layout automatically adapts to the device: **desktop interface** with sideba
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/your-username/budgetkit.git
-cd budgetkit
+git clone https://github.com/eugeniogiusti/budgeting-app
+cd budgeting-app
 
 # 2. Install PHP dependencies
 composer install
