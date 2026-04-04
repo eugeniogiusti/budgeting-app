@@ -16,6 +16,10 @@
   <img src="https://img.shields.io/badge/license-GPL--3.0-blue" alt="GPL-3.0 License" />
 </p>
 
+<p align="center">
+  <a href="https://budgetkit-topaz.vercel.app/">budgetkit-topaz.vercel.app</a>
+</p>
+
 > **⚠️ Beta project** — core features are stable, but some sections are still under active development.
 
 ---
