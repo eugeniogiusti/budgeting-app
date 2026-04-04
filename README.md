@@ -117,9 +117,3 @@ php artisan serve
 Distributed under the **GNU General Public License v3.0**. See [`LICENSE`](LICENSE) for details.
 
 In short: you are free to use, modify and distribute this software, but derivative works must be released under the same GPL-3.0 license.
-
----
-
-<p align="center">
-  Made with ❤️ using <a href="https://laravel.com">Laravel</a> and <a href="https://tailwindcss.com">Tailwind CSS</a>
-</p>
