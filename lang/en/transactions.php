@@ -23,5 +23,11 @@ return [
     'cancel' => 'Cancel',
     'save' => 'Save',
     'no_transactions' => 'No transactions',
-    'filter_all' => 'All',
+    'filter_all'           => 'All',
+    'receipt'              => 'Receipt',
+    'receipt_hint'         => 'JPG, PNG or PDF, max 5 MB',
+    'receipt_view'         => 'View',
+    'receipt_download'     => 'Download',
+    'receipt_remove'       => 'Remove receipt',
+    'receipt_change'       => 'Change receipt',
 ];

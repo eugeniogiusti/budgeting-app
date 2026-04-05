@@ -30,6 +30,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/transactions/{transaction}/edit', [TransactionController::class, 'edit'])->name('transactions.edit');
     Route::post('/transactions/{transaction}/update', [TransactionController::class, 'update'])->name('transactions.update');
     Route::post('/transactions/{transaction}/delete', [TransactionController::class, 'destroy'])->name('transactions.destroy');
+    Route::get('/transactions/{transaction}/receipt', [TransactionController::class, 'receiptPreview'])->name('transactions.receipt');
+    Route::get('/transactions/{transaction}/receipt/download', [TransactionController::class, 'receiptDownload'])->name('transactions.receipt.download');
 
     // Budget
     Route::get('/budget', [BudgetController::class, 'index'])->name('budget.index');

@@ -23,5 +23,11 @@ return [
     'cancel' => 'Annulla',
     'save' => 'Salva',
     'no_transactions' => 'Nessuna transazione',
-    'filter_all' => 'Tutti',
+    'filter_all'           => 'Tutti',
+    'receipt'              => 'Ricevuta',
+    'receipt_hint'         => 'JPG, PNG o PDF, max 5 MB',
+    'receipt_view'         => 'Visualizza',
+    'receipt_download'     => 'Scarica',
+    'receipt_remove'       => 'Rimuovi ricevuta',
+    'receipt_change'       => 'Cambia ricevuta',
 ];

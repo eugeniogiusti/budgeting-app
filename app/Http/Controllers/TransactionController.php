@@ -10,15 +10,20 @@ use App\Models\Transaction;
 use App\Queries\Transactions\BudgetExceededQuery;
 use App\Queries\Transactions\MonthlyTransactionsQuery;
 use App\Services\BudgetService;
+use App\Services\ReceiptService;
 use Carbon\Carbon;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
+use Symfony\Component\HttpFoundation\BinaryFileResponse;
 
 class TransactionController extends Controller
 {
     use ResolvesMonth;
 
-    public function __construct(private BudgetService $budgetService) {}
+    public function __construct(
+        private BudgetService $budgetService,
+        private ReceiptService $receiptService,
+    ) {}
 
     // List transactions for the selected month, optionally filtered by type and/or category.
     public function index(): View
@@ -60,6 +65,10 @@ class TransactionController extends Controller
     {
         $transaction = $this->budgetService->storeExpense($request->validated());
 
+        if ($request->hasFile('receipt')) {
+            $this->receiptService->attach($transaction, $request->file('receipt'));
+        }
+
         $exceeded = (new BudgetExceededQuery($transaction))->handle();
         if ($exceeded) {
             session()->flash('budget_exceeded', $exceeded);
@@ -86,13 +95,33 @@ class TransactionController extends Controller
             unset($validated['category_id']);
         }
 
+        unset($validated['receipt'], $validated['remove_receipt']);
+
         $transaction->update($validated);
+
+        if ($request->boolean('remove_receipt')) {
+            $this->receiptService->delete($transaction);
+        } elseif ($request->hasFile('receipt')) {
+            $this->receiptService->attach($transaction, $request->file('receipt'));
+        }
 
         session()->flash('success', __('notifications.toast_saved'));
 
         $date = Carbon::parse($validated['date']);
 
         return redirect()->route('transactions.index', ['year' => $date->year, 'month' => $date->month]);
+    }
+
+    // Preview the receipt inline in the browser.
+    public function receiptPreview(Transaction $transaction): BinaryFileResponse
+    {
+        return $this->receiptService->preview($transaction);
+    }
+
+    // Force-download the receipt file.
+    public function receiptDownload(Transaction $transaction): BinaryFileResponse
+    {
+        return $this->receiptService->download($transaction);
     }
 
     // Delete a transaction and redirect back to the same month view.

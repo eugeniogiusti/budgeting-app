@@ -20,6 +20,7 @@ class StoreExpenseRequest extends FormRequest
             'category_id' => ['required', 'exists:categories,id'],
             'date'        => ['required', 'date'],
             'note'        => ['nullable', 'string', 'max:255'],
+            'receipt'     => ['nullable', 'file', 'mimes:jpg,jpeg,png,pdf', 'max:5120'],
         ];
     }
 }

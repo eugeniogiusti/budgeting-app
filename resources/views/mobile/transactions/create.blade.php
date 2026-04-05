@@ -15,7 +15,7 @@
 
     {{-- Form --}}
     <div class="bg-white rounded-3xl p-6">
-        <form action="{{ route('transactions.store') }}" method="POST">
+        <form action="{{ route('transactions.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
 
             <div class="mb-5">
@@ -45,10 +45,21 @@
                        class="w-full px-4 py-3.5 bg-gray-100 rounded-2xl text-gray-800 placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-[#667eea]/50">
             </div>
 
-            <div class="mb-8">
+            <div class="mb-5">
                 <label class="block text-gray-500 text-sm font-medium mb-1.5">{{ __('transactions.date') }}</label>
                 <input type="date" name="date" value="{{ $today }}" required
                        class="w-full px-4 py-3.5 bg-gray-100 rounded-2xl text-gray-800 focus:outline-none focus:ring-2 focus:ring-[#667eea]/50">
+            </div>
+
+            <div class="mb-8">
+                <label class="block text-gray-500 text-sm font-medium mb-1.5">{{ __('transactions.receipt') }}</label>
+                <label class="flex items-center gap-3 px-4 py-3.5 bg-gray-100 rounded-2xl cursor-pointer">
+                    <svg class="w-5 h-5 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13"/></svg>
+                    <span class="text-gray-400 text-sm" x-data x-ref="label">{{ __('transactions.receipt_hint') }}</span>
+                    <input type="file" name="receipt" accept=".jpg,.jpeg,.png,.pdf" class="hidden"
+                           x-data x-on:change="$refs.label.textContent = $el.files[0]?.name ?? '{{ __('transactions.receipt_hint') }}'">
+                </label>
+                @error('receipt')<p class="mt-1 text-xs text-red-500">{{ $message }}</p>@enderror
             </div>
 
             <button type="submit"

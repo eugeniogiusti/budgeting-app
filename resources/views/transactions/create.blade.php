@@ -12,7 +12,7 @@
             <h3 class="text-base font-semibold text-gray-800 dark:text-white/90">{{ __('transactions.new_expense') }}</h3>
         </div>
         <div class="p-6">
-            <form action="{{ route('transactions.store') }}" method="POST">
+            <form action="{{ route('transactions.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
 
                 {{-- Importo --}}
@@ -58,6 +58,18 @@
                            class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-800 dark:text-white/90 placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-500">
                 </div>
 
+                {{-- Ricevuta --}}
+                <div class="mb-5">
+                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-400 mb-1.5">
+                        {{ __('transactions.receipt') }}
+                    </label>
+                    <input type="file" name="receipt" accept=".jpg,.jpeg,.png,.pdf"
+                           class="w-full px-4 py-2.5 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-800 dark:text-white/90 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-500
+                                  file:mr-4 file:py-1.5 file:px-3 file:rounded-md file:border-0 file:text-sm file:font-medium file:bg-brand-50 file:text-brand-700 dark:file:bg-brand-900/30 dark:file:text-brand-400 hover:file:bg-brand-100">
+                    <p class="mt-1 text-xs text-gray-400">{{ __('transactions.receipt_hint') }}</p>
+                    @error('receipt')<p class="mt-1 text-xs text-red-500">{{ $message }}</p>@enderror
+                </div>
+
                 {{-- Data --}}
                 <div class="mb-8">
                     <label class="block text-sm font-medium text-gray-700 dark:text-gray-400 mb-1.5">
@@ -71,7 +83,7 @@
                 <div class="flex gap-3">
                     <a href="{{ route('transactions.index') }}"
                        class="px-5 py-2.5 rounded-lg border border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 text-sm font-medium hover:bg-gray-50 dark:hover:bg-gray-800 transition">
-                        {{ __('transactions.cancel') ?? 'Annulla' }}
+                        {{ __('transactions.cancel') }}
                     </a>
                     <button type="submit"
                             class="px-5 py-2.5 rounded-lg bg-brand-500 hover:bg-brand-600 text-white text-sm font-semibold transition">

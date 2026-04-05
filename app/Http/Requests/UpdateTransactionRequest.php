@@ -13,12 +13,14 @@ class UpdateTransactionRequest extends FormRequest
         $isExpense = $this->route('transaction')->type === 'expense';
 
         return [
-            'amount'      => ['required', 'numeric', 'min:0.01'],
-            'note'        => ['nullable', 'string', 'max:255'],
-            'date'        => ['required', 'date'],
-            'category_id' => $isExpense
+            'amount'         => ['required', 'numeric', 'min:0.01'],
+            'note'           => ['nullable', 'string', 'max:255'],
+            'date'           => ['required', 'date'],
+            'category_id'    => $isExpense
                 ? ['required', 'exists:categories,id']
                 : ['nullable'],
+            'receipt'        => ['nullable', 'file', 'mimes:jpg,jpeg,png,pdf', 'max:5120'],
+            'remove_receipt' => ['nullable', 'boolean'],
         ];
     }
 }
