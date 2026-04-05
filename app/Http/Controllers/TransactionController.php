@@ -7,6 +7,7 @@ use App\Http\Requests\StoreExpenseRequest;
 use App\Http\Requests\UpdateTransactionRequest;
 use App\Models\Category;
 use App\Models\Transaction;
+use App\Queries\Budget\MonthlySummaryQuery;
 use App\Queries\Transactions\BudgetExceededQuery;
 use App\Queries\Transactions\MonthlyTransactionsQuery;
 use App\Services\BudgetService;
@@ -37,6 +38,8 @@ class TransactionController extends Controller
             'category_id' => $categoryId,
         ]);
 
+        $summary = (new MonthlySummaryQuery($date->year, $date->month))->handle();
+
         return $this->mobileView('transactions.index', [
             'transactions'     => (new MonthlyTransactionsQuery($date->year, $date->month, $type, $categoryId))->handle(),
             'categories'       => Category::where('is_goal', false)->orderBy('sort_order')->get(),
@@ -48,6 +51,8 @@ class TransactionController extends Controller
             'prevUrl'          => route('transactions.index', array_merge($this->monthParams($date, -1), $filterParams)),
             'nextUrl'          => route('transactions.index', array_merge($this->monthParams($date, +1), $filterParams)),
             'isCurrentMonth'   => $date->isSameMonth(Carbon::now()),
+            'totalIncome'      => $summary['income'],
+            'totalExpenses'    => $summary['expenses'],
         ]);
     }
 

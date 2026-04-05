@@ -56,6 +56,25 @@
         @endforeach
     </div>
 
+    {{-- Summary --}}
+    @php $balance = $totalIncome - $totalExpenses; @endphp
+    <div class="grid grid-cols-3 gap-2 mb-4">
+        <div class="bg-white/10 rounded-2xl px-3 py-2.5 text-center">
+            <div class="text-white/60 text-xs mb-0.5">{{ __('home.income') }}</div>
+            <div class="text-emerald-300 font-bold text-sm">+{{ number_format($totalIncome, 2, ',', '.') }}</div>
+        </div>
+        <div class="bg-white/10 rounded-2xl px-3 py-2.5 text-center">
+            <div class="text-white/60 text-xs mb-0.5">{{ __('home.expenses') }}</div>
+            <div class="text-red-300 font-bold text-sm">-{{ number_format($totalExpenses, 2, ',', '.') }}</div>
+        </div>
+        <div class="bg-white/10 rounded-2xl px-3 py-2.5 text-center">
+            <div class="text-white/60 text-xs mb-0.5">{{ __('home.balance') }}</div>
+            <div class="font-bold text-sm {{ $balance >= 0 ? 'text-white' : 'text-red-300' }}">
+                {{ $balance >= 0 ? '+' : '' }}{{ number_format($balance, 2, ',', '.') }}
+            </div>
+        </div>
+    </div>
+
     {{-- List --}}
     <div class="bg-white rounded-3xl overflow-hidden mb-6">
         @forelse($transactions as $transaction)

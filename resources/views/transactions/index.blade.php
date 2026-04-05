@@ -69,6 +69,25 @@
     @endforeach
 </div>
 
+{{-- Summary --}}
+<div class="mb-4 grid grid-cols-3 gap-3">
+    <div class="rounded-xl border border-gray-200 bg-white dark:border-gray-800 dark:bg-white/[0.03] px-4 py-3">
+        <div class="text-xs text-gray-400 dark:text-gray-500 mb-0.5">{{ __('home.income') }}</div>
+        <div class="font-bold text-green-500 text-sm">+{{ number_format($totalIncome, 2, ',', '.') }} {{ $currency }}</div>
+    </div>
+    <div class="rounded-xl border border-gray-200 bg-white dark:border-gray-800 dark:bg-white/[0.03] px-4 py-3">
+        <div class="text-xs text-gray-400 dark:text-gray-500 mb-0.5">{{ __('home.expenses') }}</div>
+        <div class="font-bold text-red-500 text-sm">-{{ number_format($totalExpenses, 2, ',', '.') }} {{ $currency }}</div>
+    </div>
+    <div class="rounded-xl border border-gray-200 bg-white dark:border-gray-800 dark:bg-white/[0.03] px-4 py-3">
+        <div class="text-xs text-gray-400 dark:text-gray-500 mb-0.5">{{ __('home.balance') }}</div>
+        @php $balance = $totalIncome - $totalExpenses; @endphp
+        <div class="font-bold text-sm {{ $balance >= 0 ? 'text-gray-800 dark:text-white/90' : 'text-red-500' }}">
+            {{ $balance >= 0 ? '+' : '' }}{{ number_format($balance, 2, ',', '.') }} {{ $currency }}
+        </div>
+    </div>
+</div>
+
 {{-- Tabella --}}
 <div class="rounded-2xl border border-gray-200 bg-white dark:border-gray-800 dark:bg-white/[0.03] overflow-hidden">
     @forelse($transactions as $transaction)
