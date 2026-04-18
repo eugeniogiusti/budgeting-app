@@ -35,6 +35,7 @@
             <!-- app header end -->
             <div class="p-4 mx-auto max-w-(--breakpoint-2xl) md:p-6">
                 @yield('content')
+                <x-footer />
             </div>
         </div>
 

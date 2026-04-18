@@ -14,4 +14,5 @@ return [
     'balance' => 'Saldo',
     'top_priorities' => 'Priorità',
     'not_assigned' => 'Non assegnato',
+    'footer_copyright' => 'Budgetkit &copy; :year Eugenio Giusti',
 ];
